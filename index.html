@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Examen Auditoría de Sistemas I</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -48,7 +49,6 @@
             padding: 40px;
         }
 
-        /* PANTALLA INICIO */
         .pantalla {
             display: none;
         }
@@ -73,6 +73,10 @@
             color: #333;
         }
 
+        .form-group label .requerido {
+            color: #ef4444;
+        }
+
         .form-group input {
             width: 100%;
             padding: 12px;
@@ -85,6 +89,11 @@
         .form-group input:focus {
             outline: none;
             border-color: #667eea;
+        }
+
+        .form-group input.error {
+            border-color: #ef4444;
+            background: #fef2f2;
         }
 
         .info-box {
@@ -125,7 +134,6 @@
             cursor: not-allowed;
         }
 
-        /* PANTALLA EXAMEN */
         .progress-bar {
             height: 6px;
             background: #e0e0e0;
@@ -276,6 +284,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s;
+            position: relative;
         }
 
         .item-asociacion:hover {
@@ -287,6 +296,12 @@
             border-color: #667eea;
             background: #f0f4ff;
             font-weight: 600;
+        }
+
+        .item-asociacion.conectado::after {
+            content: ' ✓';
+            color: #22c55e;
+            font-weight: bold;
         }
 
         .botones-navegacion {
@@ -301,7 +316,6 @@
             opacity: 0.5;
         }
 
-        /* PANTALLA RESULTADOS */
         .resultado-header {
             text-align: center;
             margin-bottom: 40px;
@@ -427,8 +441,8 @@
         }
 
         .botones-finales {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 15px;
             margin-top: 30px;
         }
@@ -441,8 +455,92 @@
             box-shadow: 0 5px 20px rgba(34, 197, 94, 0.4);
         }
 
-        .btn-reiniciar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .advertencia-pdf {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            color: #92400e;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .mensaje-exito {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            color: #065f46;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        #pdf-contenedor {
+            display: none;
+            padding: 40px;
+            background: white;
+        }
+
+        .pdf-header {
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .pdf-titulo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .pdf-info {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .pdf-contenido {
+            margin: 30px 0;
+        }
+
+        .pdf-footer {
+            border-top: 2px solid #667eea;
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .pdf-pregunta {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+
+        .pdf-pregunta-texto {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .pdf-respuesta {
+            margin-left: 20px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .pdf-correcta {
+            background: #d1fae5;
+        }
+
+        .pdf-incorrecta {
+            background: #fee2e2;
         }
 
         @media (max-width: 768px) {
@@ -481,6 +579,12 @@
             font-size: 12px;
             color: #999;
         }
+
+        .error-mensaje {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -499,22 +603,30 @@
                         <strong>⏱️ Duración:</strong> Sin límite de tiempo<br>
                         <strong>📊 Total de preguntas:</strong> 30<br>
                         <strong>✓ Distribución:</strong> 20 múltiple (10pts) + 5 V/F (2.5pts) + 5 asociación (2.5pts)<br>
-                        <strong>💾 Descarga:</strong> Podrás descargar tu examen al finalizar<br>
-                        <strong>⚠️ Características:</strong> No hay límite de intentos - Retroalimentación pedagógica incluida
+                        <strong>💾 Descarga:</strong> PDF obligatorio al finalizar<br>
+                        <strong>⚠️ IMPORTANTE:</strong> Solo 1 intento permitido - Genera PDF como evidencia
                     </div>
 
                     <div class="form-group">
-                        <label for="nombre">Tu Nombre Completo *</label>
+                        <label for="nombre">Nombre Completo <span class="requerido">*</span></label>
                         <input type="text" id="nombre" placeholder="Ej: Juan Pérez García" required>
+                        <div class="error-mensaje" id="error-nombre"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Tu Email *</label>
+                        <label for="cedula">Cédula de Identidad <span class="requerido">*</span></label>
+                        <input type="text" id="cedula" placeholder="Ej: 12345678" required>
+                        <div class="error-mensaje" id="error-cedula"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico <span class="requerido">*</span></label>
                         <input type="email" id="email" placeholder="Ej: estudiante@universidad.edu" required>
+                        <div class="error-mensaje" id="error-email"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="carrera">Tu Carrera/Programa (opcional)</label>
+                        <label for="carrera">Carrera/Programa (opcional)</label>
                         <input type="text" id="carrera" placeholder="Ej: Ingeniería en Sistemas">
                     </div>
 
@@ -545,6 +657,9 @@
                 <div id="resultado-contenedor"></div>
             </div>
         </div>
+
+        <!-- CONTENEDOR PDF (OCULTO) -->
+        <div id="pdf-contenedor"></div>
 
         <div class="footer">
             <p>© 2024 Examen Auditoría de Sistemas I - Realizado con ❤️ para estudiantes</p>
@@ -922,18 +1037,68 @@
         let respuestasEstudiante = {};
         let pantallActual = 'inicio';
         let preguntaActual = 0;
+        let examenesTomados = JSON.parse(localStorage.getItem('examenesTomados')) || [];
+
+        function validarRegistro() {
+            let valido = true;
+            const nombre = document.getElementById('nombre').value.trim();
+            const cedula = document.getElementById('cedula').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            document.getElementById('error-nombre').textContent = '';
+            document.getElementById('error-cedula').textContent = '';
+            document.getElementById('error-email').textContent = '';
+
+            if (!nombre) {
+                document.getElementById('error-nombre').textContent = 'El nombre es requerido';
+                document.getElementById('nombre').classList.add('error');
+                valido = false;
+            } else {
+                document.getElementById('nombre').classList.remove('error');
+            }
+
+            if (!cedula) {
+                document.getElementById('error-cedula').textContent = 'La cédula es requerida';
+                document.getElementById('cedula').classList.add('error');
+                valido = false;
+            } else if (!/^\d+$/.test(cedula)) {
+                document.getElementById('error-cedula').textContent = 'La cédula debe contener solo números';
+                document.getElementById('cedula').classList.add('error');
+                valido = false;
+            } else {
+                document.getElementById('cedula').classList.remove('error');
+            }
+
+            if (!email) {
+                document.getElementById('error-email').textContent = 'El email es requerido';
+                document.getElementById('email').classList.add('error');
+                valido = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('error-email').textContent = 'El email no es válido';
+                document.getElementById('email').classList.add('error');
+                valido = false;
+            } else {
+                document.getElementById('email').classList.remove('error');
+            }
+
+            // Verificar si ya hizo el examen
+            if (examenesTomados.includes(cedula)) {
+                alert('⚠️ ACCESO DENEGADO: Ya completaste este examen. Solo se permite un intento.');
+                return false;
+            }
+
+            return valido;
+        }
 
         function iniciarExamen() {
+            if (!validarRegistro()) return;
+
             const nombre = document.getElementById('nombre').value.trim();
+            const cedula = document.getElementById('cedula').value.trim();
             const email = document.getElementById('email').value.trim();
             const carrera = document.getElementById('carrera').value.trim();
 
-            if (!nombre || !email) {
-                alert('Por favor completa nombre y email');
-                return;
-            }
-
-            estudiante = { nombre, email, carrera };
+            estudiante = { nombre, cedula, email, carrera };
             pantallActual = 'examen';
             preguntaActual = 0;
             respuestasEstudiante = {};
@@ -993,9 +1158,9 @@
                 html += '<div class="columna">';
                 html += '<div class="columna-titulo">A) Términos</div>';
                 pregunta.columnaA.forEach(termino => {
-                    const seleccionado = respuestasEstudiante[preguntaActual]?.[termino] ? 'seleccionado' : '';
+                    const seleccionado = respuestasEstudiante[preguntaActual]?.[termino] ? 'conectado' : '';
                     html += `
-                        <div class="item-asociacion ${seleccionado}" onclick="seleccionarAsociacion('${termino}', event)">
+                        <div class="item-asociacion ${seleccionado}" onclick="seleccionarTermino('${preguntaActual}', '${termino}', event)" data-termino="${termino}">
                             ${termino}
                         </div>
                     `;
@@ -1003,8 +1168,13 @@
                 html += '</div>';
                 html += '<div class="columna">';
                 html += '<div class="columna-titulo">B) Definiciones</div>';
-                pregunta.columnaB.forEach((def, idx) => {
-                    html += `<div class="item-asociacion" data-def="${def}">${def}</div>`;
+                pregunta.columnaB.forEach((def) => {
+                    const seleccionado = Object.values(respuestasEstudiante[preguntaActual] || {}).includes(def) ? 'conectado' : '';
+                    html += `
+                        <div class="item-asociacion ${seleccionado}" onclick="seleccionarDefinicion('${preguntaActual}', '${def}', event)" data-def="${def}">
+                            ${def}
+                        </div>
+                    `;
                 });
                 html += '</div>';
                 html += '</div>';
@@ -1012,7 +1182,6 @@
 
             contenedor.innerHTML = html;
 
-            // Botones
             document.querySelector('.btn-anterior').disabled = preguntaActual === 0;
             document.querySelector('.btn-siguiente').textContent = preguntaActual === bancoPReguntas.length - 1 ? 'Finalizar →' : 'Siguiente →';
         }
@@ -1027,18 +1196,33 @@
             mostrarPregunta();
         }
 
-        function seleccionarAsociacion(termino, event) {
-            if (!respuestasEstudiante[preguntaActual]) {
-                respuestasEstudiante[preguntaActual] = {};
+        let terminoSeleccionado = null;
+
+        function seleccionarTermino(pregIdx, termino, event) {
+            event.stopPropagation();
+            terminoSeleccionado = termino;
+            
+            // Visual feedback
+            document.querySelectorAll('[data-termino]').forEach(el => el.classList.remove('seleccionado'));
+            event.currentTarget.classList.add('seleccionado');
+        }
+
+        function seleccionarDefinicion(pregIdx, definicion, event) {
+            event.stopPropagation();
+            
+            if (!terminoSeleccionado) {
+                alert('Primero selecciona un término de la columna A');
+                return;
             }
 
-            const items = event.currentTarget.parentElement.querySelectorAll('.item-asociacion');
-            items.forEach(item => item.classList.remove('seleccionado'));
+            if (!respuestasEstudiante[pregIdx]) {
+                respuestasEstudiante[pregIdx] = {};
+            }
 
-            event.currentTarget.classList.add('seleccionado');
+            respuestasEstudiante[pregIdx][terminoSeleccionado] = definicion;
+            terminoSeleccionado = null;
 
-            // Lógica simple: permite seleccionar un elemento de la columna A
-            respuestasEstudiante[preguntaActual].seleccionado = termino;
+            mostrarPregunta();
         }
 
         function preguntaAnterior() {
@@ -1079,7 +1263,6 @@
                 } else if (pregunta.tipo === 'verdadero_falso') {
                     esCorrecta = respuestasEstudiante[idx] === pregunta.respuestaCorrecta;
                 } else if (pregunta.tipo === 'asociacion') {
-                    // Validar asociación
                     esCorrecta = true;
                     for (let termino in pregunta.respuestasCorrectas) {
                         if (respuestasEstudiante[idx]?.[termino] !== pregunta.respuestasCorrectas[termino]) {
@@ -1091,20 +1274,20 @@
 
                 if (esCorrecta) {
                     aciertos++;
-                    if (pregunta.tipo === 'multiple' || pregunta.tipo === 'verdadero_falso') {
-                        puntosObtenidos += pregunta.tipo === 'multiple' ? 0.5 : 0.5;
-                    } else if (pregunta.tipo === 'asociacion') {
-                        puntosObtenidos += 0.5;
-                    }
+                    puntosObtenidos += 0.5;
                 }
 
                 return { pregunta, esCorrecta, idx };
             });
 
             const porcentaje = ((aciertos / bancoPReguntas.length) * 100).toFixed(1);
-            const aprobado = aciertos >= 21; // 70% = 21 preguntas de 30
+            const aprobado = aciertos >= 21;
 
             let html = `
+                <div class="advertencia-pdf">
+                    ⚠️ IMPORTANTE: Debes descargar el PDF para poder subir tu examen como evidencia en la plataforma
+                </div>
+
                 <div class="resultado-header ${aprobado ? 'aprobado' : 'reprobado'}">
                     <div class="resultado-icono">${aprobado ? '✓' : '✗'}</div>
                     <div class="resultado-titulo">${aprobado ? '¡Felicidades!' : 'No aprobaste'}</div>
@@ -1123,12 +1306,10 @@
             resultadosDetallados.forEach(({ pregunta, esCorrecta, idx }) => {
                 const estado = esCorrecta ? 'respuesta-correcta' : 'respuesta-incorrecta';
                 const textoEstado = esCorrecta ? 'Correcta ✓' : 'Incorrecta ✗';
-                const respuesta = respuestasEstudiante[idx] !== undefined ? 'Respondida' : 'No respondida';
 
                 html += `
                     <div class="respuesta-item">
                         <div class="respuesta-numero">Pregunta ${idx + 1}: ${pregunta.texto}</div>
-                        <div class="respuesta-texto"><strong>Tu respuesta:</strong> ${respuesta}</div>
                         <span class="respuesta-estado ${estado}">${textoEstado}</span>
                         <div class="comentario-pedagogico">
                             <strong>💡 Explicación:</strong> ${pregunta.comentario}
@@ -1137,12 +1318,13 @@
                 `;
             });
 
-            html += `
-                </div>
+            html += `</div>`;
 
+            html += `
                 <div style="background: #f0f4ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 5px; margin: 30px 0;">
-                    <strong>📊 Información del examen:</strong><br>
-                    Estudiante: ${estudiante.nombre}<br>
+                    <strong>📊 Información del Estudiante:</strong><br>
+                    Nombre: ${estudiante.nombre}<br>
+                    Cédula: ${estudiante.cedula}<br>
                     Email: ${estudiante.email}<br>
                     ${estudiante.carrera ? `Carrera: ${estudiante.carrera}<br>` : ''}
                     Fecha: ${new Date().toLocaleDateString('es-ES')}<br>
@@ -1151,8 +1333,7 @@
                 </div>
 
                 <div class="botones-finales">
-                    <button class="btn-descargar" onclick="descargarPDF()">💾 Descargar Resultado en PDF</button>
-                    <button class="btn-reiniciar" onclick="reiniciarExamen()">🔄 Hacer Otro Intento</button>
+                    <button class="btn-descargar" onclick="descargarPDF()">💾 Descargar PDF - OBLIGATORIO</button>
                 </div>
             `;
 
@@ -1160,19 +1341,158 @@
         }
 
         function descargarPDF() {
-            alert('Función de descarga PDF - Implementar con librería jsPDF o similar\nPor ahora, usa Ctrl+S para guardar como PDF desde el navegador');
-        }
+            let aciertos = 0;
+            let puntosObtenidos = 0;
 
-        function reiniciarExamen() {
-            pantallActual = 'inicio';
-            preguntaActual = 0;
-            respuestasEstudiante = {};
-            estudiante = {};
-            mostrarPantalla();
-            document.getElementById('nombre').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('carrera').value = '';
-            window.scrollTo(0, 0);
+            bancoPReguntas.forEach((pregunta, idx) => {
+                let esCorrecta = false;
+
+                if (pregunta.tipo === 'multiple') {
+                    esCorrecta = respuestasEstudiante[idx] === pregunta.respuestaCorrecta;
+                } else if (pregunta.tipo === 'verdadero_falso') {
+                    esCorrecta = respuestasEstudiante[idx] === pregunta.respuestaCorrecta;
+                } else if (pregunta.tipo === 'asociacion') {
+                    esCorrecta = true;
+                    for (let termino in pregunta.respuestasCorrectas) {
+                        if (respuestasEstudiante[idx]?.[termino] !== pregunta.respuestasCorrectas[termino]) {
+                            esCorrecta = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (esCorrecta) {
+                    aciertos++;
+                    puntosObtenidos += 0.5;
+                }
+            });
+
+            const porcentaje = ((aciertos / bancoPReguntas.length) * 100).toFixed(1);
+            const aprobado = aciertos >= 21;
+
+            const htmlPDF = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <style>
+                        body { font-family: Arial; margin: 20px; color: #333; }
+                        .header { border-bottom: 3px solid #667eea; padding-bottom: 15px; margin-bottom: 20px; }
+                        .titulo { font-size: 20px; font-weight: bold; color: #667eea; margin-bottom: 10px; }
+                        .info { font-size: 12px; line-height: 1.8; margin-bottom: 5px; }
+                        .separador { page-break-after: always; margin-bottom: 20px; }
+                        .pregunta { margin-bottom: 15px; page-break-inside: avoid; }
+                        .pregunta-num { font-weight: bold; color: #667eea; }
+                        .respuesta-item { margin-left: 20px; margin-top: 5px; padding: 8px; background: #f5f5f5; border-radius: 3px; font-size: 12px; }
+                        .correcta { background: #d1fae5; }
+                        .incorrecta { background: #fee2e2; }
+                        .footer { border-top: 3px solid #667eea; padding-top: 15px; margin-top: 20px; text-align: center; font-size: 11px; }
+                        .resultado-final { font-size: 16px; font-weight: bold; color: ${aprobado ? '#22c55e' : '#ef4444'}; margin: 20px 0; padding: 15px; background: ${aprobado ? '#f0fdf4' : '#fef2f2'}; border-radius: 5px; }
+                    </style>
+                </head>
+                <body>
+                    <!-- PRIMERA PÁGINA -->
+                    <div class="header">
+                        <div class="titulo">EXAMEN AUDITORÍA DE SISTEMAS I</div>
+                        <div class="info"><strong>Estudiante:</strong> ${estudiante.nombre}</div>
+                        <div class="info"><strong>Cédula de Identidad:</strong> ${estudiante.cedula}</div>
+                        <div class="info"><strong>Correo Electrónico:</strong> ${estudiante.email}</div>
+                        ${estudiante.carrera ? `<div class="info"><strong>Carrera:</strong> ${estudiante.carrera}</div>` : ''}
+                        <div class="info"><strong>Fecha de Realización:</strong> ${new Date().toLocaleDateString('es-ES')}</div>
+                    </div>
+
+                    <div class="resultado-final">
+                        ${aprobado ? '✓ EXAMEN APROBADO' : '✗ EXAMEN NO APROBADO'}<br>
+                        Puntuación: ${aciertos}/30 (${porcentaje}%) - ${puntosObtenidos.toFixed(1)}/15 puntos
+                    </div>
+
+                    <h3>RESPUESTAS DEL ESTUDIANTE:</h3>
+            `;
+
+            let htmlPreguntasDetalles = '';
+            bancoPReguntas.forEach((pregunta, idx) => {
+                let esCorrecta = false;
+                let respuestaEstudiante = '';
+
+                if (pregunta.tipo === 'multiple') {
+                    esCorrecta = respuestasEstudiante[idx] === pregunta.respuestaCorrecta;
+                    if (respuestasEstudiante[idx] !== undefined) {
+                        respuestaEstudiante = pregunta.opciones[respuestasEstudiante[idx]];
+                    } else {
+                        respuestaEstudiante = 'No respondida';
+                    }
+                } else if (pregunta.tipo === 'verdadero_falso') {
+                    esCorrecta = respuestasEstudiante[idx] === pregunta.respuestaCorrecta;
+                    respuestaEstudiante = respuestasEstudiante[idx] !== undefined ? (respuestasEstudiante[idx] ? 'Verdadero' : 'Falso') : 'No respondida';
+                } else if (pregunta.tipo === 'asociacion') {
+                    esCorrecta = true;
+                    const respuestas = respuestasEstudiante[idx] || {};
+                    respuestaEstudiante = Object.keys(respuestas).map(t => `${t} → ${respuestas[t]}`).join('<br>') || 'No respondida';
+                    for (let termino in pregunta.respuestasCorrectas) {
+                        if (respuestas[termino] !== pregunta.respuestasCorrectas[termino]) {
+                            esCorrecta = false;
+                            break;
+                        }
+                    }
+                }
+
+                const clase = esCorrecta ? 'correcta' : 'incorrecta';
+                htmlPreguntasDetalles += `
+                    <div class="pregunta">
+                        <div class="pregunta-num">Pregunta ${idx + 1}: ${pregunta.texto}</div>
+                        <div class="respuesta-item ${clase}">
+                            <strong>Respuesta:</strong> ${respuestaEstudiante}<br>
+                            <strong>Resultado:</strong> ${esCorrecta ? '✓ Correcta' : '✗ Incorrecta'}
+                        </div>
+                    </div>
+                `;
+            });
+
+            const htmlPDFFinal = htmlPDF + htmlPreguntasDetalles + `
+                    <div class="separador"></div>
+
+                    <!-- ÚLTIMA PÁGINA - RESUMEN -->
+                    <div class="header">
+                        <div class="titulo">RESUMEN FINAL DEL EXAMEN</div>
+                        <div class="info"><strong>Estudiante:</strong> ${estudiante.nombre}</div>
+                        <div class="info"><strong>Cédula de Identidad:</strong> ${estudiante.cedula}</div>
+                        <div class="info"><strong>Correo Electrónico:</strong> ${estudiante.email}</div>
+                        ${estudiante.carrera ? `<div class="info"><strong>Carrera:</strong> ${estudiante.carrera}</div>` : ''}
+                        <div class="info"><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')}</div>
+                    </div>
+
+                    <div class="resultado-final">
+                        ${aprobado ? '✓ EXAMEN APROBADO' : '✗ EXAMEN NO APROBADO'}<br>
+                        Puntuación Final: ${aciertos}/30 preguntas correctas<br>
+                        Porcentaje: ${porcentaje}%<br>
+                        Puntuación: ${puntosObtenidos.toFixed(1)}/15 puntos
+                    </div>
+
+                    <div class="footer">
+                        <p>Este documento fue generado automáticamente por el sistema de evaluación.</p>
+                        <p>Examen Auditoría de Sistemas I © 2024</p>
+                    </div>
+                </body>
+                </html>
+            `;
+
+            const elemento = document.createElement('div');
+            elemento.innerHTML = htmlPDFFinal;
+
+            const opt = {
+                margin: 10,
+                filename: `Examen_${estudiante.cedula}_${estudiante.nombre.replace(/\s/g, '_')}_${new Date().getFullYear()}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(elemento).save().then(() => {
+                // Registrar que el estudiante ya hizo el examen
+                examenesTomados.push(estudiante.cedula);
+                localStorage.setItem('examenesTomados', JSON.stringify(examenesTomados));
+
+                alert('✓ PDF descargado correctamente\n\n⚠️ Recuerda subir este PDF a la plataforma como evidencia');
+            });
         }
     </script>
 </body>
