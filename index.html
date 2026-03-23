@@ -107,10 +107,6 @@
             color: #555;
         }
 
-        .info-box strong {
-            color: #333;
-        }
-
         button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -335,7 +331,6 @@
             border-color: #f59e0b;
             background: #fef3c7;
             font-weight: 700;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
         }
 
         .asociacion-item.conectado {
@@ -393,11 +388,6 @@
             color: #ef4444;
         }
 
-        .resultado-subtitulo {
-            font-size: 16px;
-            color: #666;
-        }
-
         .puntuacion {
             text-align: center;
             margin: 30px 0;
@@ -426,8 +416,8 @@
         }
 
         .respuesta-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
             border-bottom: 1px solid #e0e0e0;
         }
 
@@ -438,12 +428,13 @@
         .respuesta-numero {
             font-weight: 600;
             color: #667eea;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
+            font-size: 14px;
         }
 
         .respuesta-estado {
             font-size: 12px;
-            padding: 6px 12px;
+            padding: 4px 8px;
             border-radius: 3px;
             display: inline-block;
             margin-bottom: 8px;
@@ -460,48 +451,33 @@
             color: #7f1d1d;
         }
 
+        .justificacion {
+            font-size: 12px;
+            margin: 6px 0;
+            padding: 8px;
+            border-radius: 3px;
+            line-height: 1.5;
+        }
+
         .justificacion-bien {
             background: #f0fdf4;
-            border-left: 4px solid #22c55e;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 3px;
-            font-size: 13px;
+            border-left: 3px solid #22c55e;
             color: #166534;
-            line-height: 1.6;
         }
 
         .justificacion-mejorar {
             background: #fef2f2;
-            border-left: 4px solid #ef4444;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 3px;
-            font-size: 13px;
+            border-left: 3px solid #ef4444;
             color: #991b1b;
-            line-height: 1.6;
-        }
-
-        .respuesta-correcta-indicada {
-            background: #eff6ff;
-            border-left: 4px solid #3b82f6;
-            padding: 10px;
-            margin: 8px 0;
-            border-radius: 3px;
-            font-size: 12px;
-            color: #1e40af;
-            font-weight: 600;
         }
 
         .sugerencia-repaso {
             background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 10px;
-            margin: 8px 0;
-            border-radius: 3px;
-            font-size: 12px;
+            border-left: 3px solid #f59e0b;
             color: #92400e;
-            font-style: italic;
+            font-size: 11px;
+            padding: 6px;
+            margin-top: 4px;
         }
 
         .botones-finales {
@@ -547,8 +523,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .botones-navegacion,
-            .botones-finales {
+            .botones-navegacion {
                 grid-template-columns: 1fr;
             }
         }
@@ -576,53 +551,47 @@
         </div>
 
         <div class="content">
-            <!-- PANTALLA INICIO -->
             <div id="pantalla-inicio" class="pantalla activo">
                 <div class="inicio-form">
                     <div class="info-box">
-                        <strong>📌 Información del examen:</strong><br><br>
-                        <strong>⏱️ Duración:</strong> Sin límite de tiempo<br>
-                        <strong>📊 Total de preguntas:</strong> 30<br>
-                        <strong>✓ Distribución:</strong> 20 múltiple (10pts) + 5 V/F (2.5pts) + 5 asociación (2.5pts)<br>
-                        <strong>💾 Descarga:</strong> PDF obligatorio al finalizar<br>
-                        <strong>⚠️ IMPORTANTE:</strong> Solo 1 intento permitido
+                        <strong>📌 Información:</strong><br>
+                        ⏱️ Sin límite | 📊 30 preguntas | ⚠️ 1 intento | 💾 PDF obligatorio
                     </div>
 
                     <div class="form-group">
-                        <label for="nombre">Nombre Completo <span class="requerido">*</span></label>
-                        <input type="text" id="nombre" placeholder="Ej: Juan Pérez García" required>
+                        <label for="nombre">Nombre <span class="requerido">*</span></label>
+                        <input type="text" id="nombre" placeholder="Juan Pérez García">
                         <div class="error-mensaje" id="error-nombre"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="cedula">Cédula de Identidad <span class="requerido">*</span></label>
-                        <input type="text" id="cedula" placeholder="Ej: 12345678" required>
+                        <label for="cedula">Cédula <span class="requerido">*</span></label>
+                        <input type="text" id="cedula" placeholder="12345678">
                         <div class="error-mensaje" id="error-cedula"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Correo Electrónico <span class="requerido">*</span></label>
-                        <input type="email" id="email" placeholder="Ej: estudiante@universidad.edu" required>
+                        <label for="email">Email <span class="requerido">*</span></label>
+                        <input type="email" id="email" placeholder="estudiante@universidad.edu">
                         <div class="error-mensaje" id="error-email"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="carrera">Carrera/Programa (opcional)</label>
-                        <input type="text" id="carrera" placeholder="Ej: Ingeniería en Sistemas">
+                        <label for="carrera">Carrera (opcional)</label>
+                        <input type="text" id="carrera" placeholder="Ingeniería en Sistemas">
                     </div>
 
-                    <button onclick="iniciarExamen()">Comenzar Examen 🚀</button>
+                    <button onclick="iniciarExamen()">Comenzar 🚀</button>
                 </div>
             </div>
 
-            <!-- PANTALLA EXAMEN -->
             <div id="pantalla-examen" class="pantalla">
                 <div class="progress-bar">
                     <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
                 </div>
 
                 <div class="pregunta-header">
-                    <span class="pregunta-numero">Pregunta <span class="pregunta-numero-grande" id="pregunta-actual">1</span> de <span id="pregunta-total">30</span></span>
+                    <span class="pregunta-numero">P<span class="pregunta-numero-grande" id="pregunta-actual">1</span>/<span id="pregunta-total">30</span></span>
                 </div>
 
                 <div id="pregunta-contenedor"></div>
@@ -633,7 +602,6 @@
                 </div>
             </div>
 
-            <!-- PANTALLA RESULTADOS -->
             <div id="pantalla-resultados" class="pantalla">
                 <div id="resultado-contenedor"></div>
             </div>
@@ -645,49 +613,44 @@
     </div>
 
     <script>
-        // BANCO DE PREGUNTAS
         const bancoPReguntas = [
-            {id: 1, tipo: 'multiple', texto: '¿Cuál describe mejor la eficacia en un sistema de información?', opciones: ['Usar pocos recursos técnicos','Cumplir los objetivos para los que fue diseñado','Reducir costos operativos','Aumentar el número de usuarios'], respuestaCorrecta: 1, comentario: 'La eficacia se relaciona con el logro de objetivos.', repaso: 'Conceptos de eficacia y eficiencia'},
-            {id: 2, tipo: 'multiple', texto: '¿Cuál describe mejor la eficiencia en TI?', opciones: ['Hacer lo correcto con el menor uso de recursos','Cumplir con la ley','Corregir errores del sistema','Garantizar privacidad de datos'], respuestaCorrecta: 0, comentario: 'La eficiencia implica optimizar recursos.', repaso: 'Diferencia entre eficiencia y eficacia'},
-            {id: 3, tipo: 'multiple', texto: 'En auditoría de sistemas, una deficiencia es:', opciones: ['Un objetivo estratégico','Una mejora implementada','Una carencia o insuficiencia del sistema o control','Una política de privacidad'], respuestaCorrecta: 2, comentario: 'Una deficiencia es la ausencia o insuficiencia de una característica.', repaso: 'Conceptos de auditoría - Deficiencias vs Fortalezas'},
-            {id: 4, tipo: 'multiple', texto: '¿Cuál es la referencia principal para un SGSI?', opciones: ['ISO 9001','ISO/IEC 27001','IEEE 829','WCAG 2.2'], respuestaCorrecta: 1, comentario: 'ISO/IEC 27001 es el estándar para gestión de seguridad.', repaso: 'Normas ISO para seguridad de la información'},
-            {id: 5, tipo: 'multiple', texto: 'El RGPD se caracteriza por:', opciones: ['Aplicarse solo en España','Ser una metodología ágil','Tener alcance extraterritorial','Regular solo software libre'], respuestaCorrecta: 2, comentario: 'El RGPD aplica extraterritorialmente.', repaso: 'Alcance y jurisdicción del RGPD'},
-            {id: 6, tipo: 'multiple', texto: '¿Cuál es un principio del artículo 5 del RGPD?', opciones: ['Compresión de archivos','Minimización de datos','Desarrollo incremental','Redundancia operativa'], respuestaCorrecta: 1, comentario: 'La minimización de datos es un principio clave del RGPD.', repaso: 'Principios RGPD - Artículo 5'},
-            {id: 7, tipo: 'multiple', texto: '¿Cuál es el nivel AA en accesibilidad web?', opciones: ['Nivel básico','Nivel intermedio recomendado','Nivel avanzado','Nivel de referencia legal'], respuestaCorrecta: 3, comentario: 'El nivel AA es el estándar legal de referencia.', repaso: 'Niveles WCAG - AA es el mínimo recomendado'},
-            {id: 8, tipo: 'multiple', texto: '¿Qué significan las siglas POUR en WCAG?', opciones: ['Privacidad, Operación, Utilidad, Red','Perceptible, Operable, Comprensible, Robusto','Planeación, Organización, Uso, Riesgo','Protección, Optimización, Usabilidad, Rendimiento'], respuestaCorrecta: 1, comentario: 'Los principios POUR son fundamentales en WCAG 2.2.', repaso: 'Principios WCAG - POUR'},
-            {id: 9, tipo: 'multiple', texto: 'Un sistema web accesible debe:', opciones: ['Funcionar solo con mouse','Requerir colores para toda señalización','Ser operable mediante teclado','Usar animaciones intensas'], respuestaCorrecta: 2, comentario: 'La operabilidad mediante teclado es esencial.', repaso: 'Accesibilidad web - Operabilidad sin mouse'},
-            {id: 10, tipo: 'multiple', texto: 'El PESI sirve principalmente para:', opciones: ['Diseñar contraseñas','Planificar estratégicamente TI alineado al negocio','Crear sitios web accesibles','Eliminar ransomware'], respuestaCorrecta: 1, comentario: 'El PESI alinea TI con estrategia empresarial.', repaso: 'Plan Estratégico de Sistemas de Información'},
-            {id: 11, tipo: 'multiple', texto: 'El objetivo principal del gobierno de TI en COBIT 2019:', opciones: ['Reducir personal','Eliminar auditorías','Generar valor para stakeholders','Programar rápido'], respuestaCorrecta: 2, comentario: 'Generar valor es el objetivo central.', repaso: 'COBIT 2019 - Enfoque en valor'},
-            {id: 12, tipo: 'multiple', texto: 'Un dominio de COBIT 2019 es:', opciones: ['Rendering','APO (Alinear, Planificar y Organizar)','CSS3','SQLX'], respuestaCorrecta: 1, comentario: 'APO es uno de los cinco dominios principales.', repaso: 'Dominios COBIT 2019 - EDM, APO, BAI, DSS, MEA'},
-            {id: 13, tipo: 'multiple', texto: 'El ransomware es:', opciones: ['Una BD distribuida','Un malware que cifra datos y exige rescate','Un modelo de accesibilidad','Un principio del RGPD'], respuestaCorrecta: 1, comentario: 'El ransomware secuestra información.', repaso: 'Ciberseguridad - Ransomware como amenaza crítica'},
-            {id: 14, tipo: 'multiple', texto: 'La mejor defensa contra ransomware es:', opciones: ['Cambiar el logo','Copias de seguridad confiables','Eliminar auditorías','Aumentar contraste'], respuestaCorrecta: 1, comentario: 'Los backups aislados son la mejor defensa.', repaso: 'Estrategia de backup y recuperación ante ransomware'},
-            {id: 15, tipo: 'multiple', texto: 'En ataque de ransomware, lo correcto es:', opciones: ['Pagar el rescate','Ignorar el incidente','Aislar equipos y preservar evidencia','Borrar registros'], respuestaCorrecta: 2, comentario: 'Aislar y preservar evidencia es lo correcto.', repaso: 'Respuesta a incidentes de ransomware'},
-            {id: 16, tipo: 'multiple', texto: '¿Cuál es un valor del Manifiesto Ágil?', opciones: ['Documentación exhaustiva','Seguir plan rígido','Individuos e interacciones sobre procesos','Contratos sobre colaboración'], respuestaCorrecta: 2, comentario: 'Las personas son el centro del enfoque ágil.', repaso: 'Valores del Manifiesto Ágil'},
-            {id: 17, tipo: 'multiple', texto: 'En Ágil, el progreso se mide por:', opciones: ['Reuniones','Documentos','Software funcionando','Diagramas'], respuestaCorrecta: 2, comentario: 'El software funcionando es la métrica principal.', repaso: 'Métricas de progreso en metodologías ágiles'},
-            {id: 18, tipo: 'multiple', texto: 'En Actividad 1, el estudiante debe:', opciones: ['Penetration testing','Diagnosticar necesidades de TI','Implementar SIEM','Programar sistema'], respuestaCorrecta: 1, comentario: 'El diagnóstico es fundamental.', repaso: 'Diagnóstico organizacional para TI'},
-            {id: 19, tipo: 'multiple', texto: '¿Relación diagnóstico y auditoría TI?', opciones: ['No hay relación','Diagnóstico identifica procesos y riesgos críticos','Solo RR.HH.','Sustituye auditoría'], respuestaCorrecta: 1, comentario: 'El diagnóstico contextualiza la auditoría.', repaso: 'Fases previas a auditoría de TI'},
-            {id: 20, tipo: 'multiple', texto: '¿Visión moderna de auditoría de TI?', opciones: ['Solo hardware','Solo contraseñas','Holística: tecnología, procesos, riesgos, alineación','Solo cumplimiento legal'], respuestaCorrecta: 2, comentario: 'La auditoría moderna es integral.', repaso: 'Auditoría moderna - Enfoque holístico'},
-            {id: 21, tipo: 'verdadero_falso', texto: 'Eficiencia y eficacia significan lo mismo.', respuestaCorrecta: false, comentario: 'Eficacia = lograr objetivos; Eficiencia = optimizar recursos.', repaso: 'Diferencia conceptual fundamental'},
-            {id: 22, tipo: 'verdadero_falso', texto: 'El RGPD exige responsabilidad proactiva.', respuestaCorrecta: true, comentario: 'La accountability es un principio del RGPD.', repaso: 'Responsabilidad proactiva en RGPD'},
-            {id: 23, tipo: 'verdadero_falso', texto: 'Un sitio accesible depende solo del mouse.', respuestaCorrecta: false, comentario: 'Debe funcionar con teclado también.', repaso: 'Accesibilidad - Múltiples modos de interacción'},
-            {id: 24, tipo: 'verdadero_falso', texto: 'COBIT 2019 distingue gobierno de gestión.', respuestaCorrecta: true, comentario: 'EDM (gobierno) es diferente de APO, BAI, DSS (gestión).', repaso: 'COBIT 2019 - Gobierno vs Gestión'},
-            {id: 25, tipo: 'verdadero_falso', texto: 'Responder al cambio es menos importante que seguir plan.', respuestaCorrecta: false, comentario: 'El Manifiesto Ágil prioriza adaptación.', repaso: 'Principios ágiles - Flexibilidad antes que rigidez'},
-            {id: 26, tipo: 'asociacion', texto: 'Relaciona cada término con su definición:', columnaA: ['Eficacia','Eficiencia','Deficiencia'], columnaB: ['Carencia o insuficiencia','Logro de objetivos','Uso óptimo de recursos'], respuestasCorrectas: {'Eficacia':'Logro de objetivos','Eficiencia':'Uso óptimo de recursos','Deficiencia':'Carencia o insuficiencia'}, comentario: 'Conceptos fundamentales en administración.', repaso: 'Conceptos básicos de gestión'},
-            {id: 27, tipo: 'asociacion', texto: 'Relaciona cada norma con su área:', columnaA: ['RGPD','ISO/IEC 27001','WCAG'], columnaB: ['Accesibilidad web','Gestión de seguridad información','Protección de datos'], respuestasCorrectas: {'RGPD':'Protección de datos','ISO/IEC 27001':'Gestión de seguridad información','WCAG':'Accesibilidad web'}, comentario: 'Marcos clave en TI moderna.', repaso: 'Normas y regulaciones - RGPD, ISO, WCAG'},
-            {id: 28, tipo: 'asociacion', texto: 'Relaciona principios WCAG:', columnaA: ['Perceptible','Operable','Comprensible','Robusto'], columnaB: ['Compatible con tecnologías','Contenido inteligible','Contenido visible','Interfaz utilizable'], respuestasCorrectas: {'Perceptible':'Contenido visible','Operable':'Interfaz utilizable','Comprensible':'Contenido inteligible','Robusto':'Compatible con tecnologías'}, comentario: 'Principios POUR garantizan accesibilidad.', repaso: 'WCAG 2.2 - Principios POUR'},
-            {id: 29, tipo: 'asociacion', texto: 'Relaciona dominios COBIT 2019:', columnaA: ['APO','EDM','DSS'], columnaB: ['Gobierno y dirección','Alineación y planeación','Entrega de servicios'], respuestasCorrectas: {'APO':'Alineación y planeación','EDM':'Gobierno y dirección','DSS':'Entrega de servicios'}, comentario: 'Dominios fundamentales de COBIT.', repaso: 'COBIT 2019 - Dominios y responsabilidades'},
-            {id: 30, tipo: 'asociacion', texto: 'Relaciona conceptos TI moderna:', columnaA: ['Ransomware','Backup','Ágil'], columnaB: ['Desarrollo adaptable','Recuperación de datos','Malware de secuestro'], respuestasCorrectas: {'Ransomware':'Malware de secuestro','Backup':'Recuperación de datos','Ágil':'Desarrollo adaptable'}, comentario: 'Aspectos clave de TI contemporánea.', repaso: 'Ciberseguridad, continuidad y desarrollo'}
+            {id: 1, tipo: 'multiple', texto: '¿Cuál describe mejor la eficacia en un sistema de información?', opciones: ['Usar pocos recursos','Cumplir objetivos propuestos','Reducir costos','Aumentar usuarios'], respuestaCorrecta: 1, comentario: 'La eficacia se relaciona con el logro de objetivos.', repaso: 'Eficacia vs Eficiencia'},
+            {id: 2, tipo: 'multiple', texto: '¿Cuál describe mejor la eficiencia en TI?', opciones: ['Lo correcto con menos recursos','Cumplir ley','Corregir errores','Garantizar privacidad'], respuestaCorrecta: 0, comentario: 'La eficiencia optimiza recursos.', repaso: 'Conceptos de eficiencia'},
+            {id: 3, tipo: 'multiple', texto: 'Una deficiencia en auditoría es:', opciones: ['Objetivo estratégico','Mejora implementada','Carencia o insuficiencia','Política de privacidad'], respuestaCorrecta: 2, comentario: 'Deficiencia = ausencia o insuficiencia.', repaso: 'Conceptos de auditoría'},
+            {id: 4, tipo: 'multiple', texto: '¿Norma principal para SGSI?', opciones: ['ISO 9001','ISO/IEC 27001','IEEE 829','WCAG 2.2'], respuestaCorrecta: 1, comentario: 'ISO/IEC 27001 es el estándar.', repaso: 'Normas ISO'},
+            {id: 5, tipo: 'multiple', texto: 'El RGPD se caracteriza por:', opciones: ['Aplicarse solo en España','Ser metodología ágil','Alcance extraterritorial','Software libre'], respuestaCorrecta: 2, comentario: 'RGPD aplica extraterritorialmente.', repaso: 'RGPD y jurisdicción'},
+            {id: 6, tipo: 'multiple', texto: '¿Principio del artículo 5 RGPD?', opciones: ['Compresión','Minimización de datos','Desarrollo incremental','Redundancia'], respuestaCorrecta: 1, comentario: 'Minimización de datos es clave.', repaso: 'Principios RGPD'},
+            {id: 7, tipo: 'multiple', texto: '¿Nivel AA en accesibilidad?', opciones: ['Nivel A','Nivel intermedio','Nivel avanzado','Referencia legal'], respuestaCorrecta: 3, comentario: 'AA es el estándar legal.', repaso: 'Niveles WCAG'},
+            {id: 8, tipo: 'multiple', texto: '¿POUR en WCAG significa?', opciones: ['Privacidad/Operación/Utilidad/Red','Perceptible/Operable/Comprensible/Robusto','Planeación/Organización/Uso/Riesgo','Protección/Optimización/Usabilidad/Rendimiento'], respuestaCorrecta: 1, comentario: 'Principios POUR en WCAG.', repaso: 'Principios WCAG'},
+            {id: 9, tipo: 'multiple', texto: 'Sistema web accesible debe:', opciones: ['Solo mouse','Colores para señalización','Operable con teclado','Animaciones intensas'], respuestaCorrecta: 2, comentario: 'Teclado es esencial.', repaso: 'Accesibilidad sin mouse'},
+            {id: 10, tipo: 'multiple', texto: 'El PESI sirve para:', opciones: ['Contraseñas','Planificar TI estratégicamente','Sitios accesibles','Eliminar ransomware'], respuestaCorrecta: 1, comentario: 'PESI alinea TI al negocio.', repaso: 'Plan Estratégico TI'},
+            {id: 11, tipo: 'multiple', texto: 'Objetivo gobierno TI COBIT 2019:', opciones: ['Reducir personal','Eliminar auditorías','Generar valor','Programar rápido'], respuestaCorrecta: 2, comentario: 'Generar valor es central.', repaso: 'COBIT 2019'},
+            {id: 12, tipo: 'multiple', texto: 'Dominio de COBIT 2019:', opciones: ['Rendering','APO','CSS3','SQLX'], respuestaCorrecta: 1, comentario: 'APO es un dominio clave.', repaso: 'Dominios COBIT'},
+            {id: 13, tipo: 'multiple', texto: 'Ransomware es:', opciones: ['BD distribuida','Malware que cifra datos','Accesibilidad web','Principio RGPD'], respuestaCorrecta: 1, comentario: 'Ransomware secuestra información.', repaso: 'Ransomware'},
+            {id: 14, tipo: 'multiple', texto: 'Defensa contra ransomware:', opciones: ['Cambiar logo','Backups confiables','Eliminar auditorías','Aumentar contraste'], respuestaCorrecta: 1, comentario: 'Backups son la mejor defensa.', repaso: 'Backup y recuperación'},
+            {id: 15, tipo: 'multiple', texto: 'Ataque ransomware - acción correcta:', opciones: ['Pagar rescate','Ignorar','Aislar y preservar evidencia','Borrar registros'], respuestaCorrecta: 2, comentario: 'Aislar es correcto.', repaso: 'Respuesta a incidentes'},
+            {id: 16, tipo: 'multiple', texto: '¿Valor Manifiesto Ágil?', opciones: ['Documentación exhaustiva','Seguir plan rígido','Individuos e interacciones','Contratos rígidos'], respuestaCorrecta: 2, comentario: 'Las personas son centro.', repaso: 'Manifiesto Ágil'},
+            {id: 17, tipo: 'multiple', texto: 'Progreso en Ágil medido por:', opciones: ['Reuniones','Documentos','Software funcionando','Diagramas'], respuestaCorrecta: 2, comentario: 'Software es métrica.', repaso: 'Ágil - métricas'},
+            {id: 18, tipo: 'multiple', texto: 'Actividad 1 - estudiante debe:', opciones: ['Penetration testing','Diagnosticar necesidades TI','Implementar SIEM','Programar'], respuestaCorrecta: 1, comentario: 'Diagnóstico es fundamental.', repaso: 'Diagnóstico organizacional'},
+            {id: 19, tipo: 'multiple', texto: '¿Relación diagnóstico y auditoría TI?', opciones: ['No hay','Identifica procesos y riesgos','Solo RR.HH.','Sustituye auditoría'], respuestaCorrecta: 1, comentario: 'Diagnóstico contextualiza.', repaso: 'Fases de auditoría'},
+            {id: 20, tipo: 'multiple', texto: 'Auditoría moderna es:', opciones: ['Solo hardware','Solo contraseñas','Holística e integral','Solo legal'], respuestaCorrecta: 2, comentario: 'Auditoría es integral.', repaso: 'Auditoría moderna'},
+            {id: 21, tipo: 'verdadero_falso', texto: 'Eficiencia y eficacia son lo mismo.', respuestaCorrecta: false, comentario: 'Eficacia = objetivos; Eficiencia = recursos.', repaso: 'Diferencia conceptual'},
+            {id: 22, tipo: 'verdadero_falso', texto: 'RGPD exige responsabilidad proactiva.', respuestaCorrecta: true, comentario: 'Accountability es principio.', repaso: 'RGPD - Accountability'},
+            {id: 23, tipo: 'verdadero_falso', texto: 'Sitio accesible depende solo del mouse.', respuestaCorrecta: false, comentario: 'Debe funcionar con teclado.', repaso: 'Accesibilidad múltiple'},
+            {id: 24, tipo: 'verdadero_falso', texto: 'COBIT 2019 distingue gobierno de gestión.', respuestaCorrecta: true, comentario: 'EDM vs APO/BAI/DSS.', repaso: 'COBIT 2019'},
+            {id: 25, tipo: 'verdadero_falso', texto: 'Responder cambio < seguir plan en Ágil.', respuestaCorrecta: false, comentario: 'Adaptación es principio.', repaso: 'Principios Ágil'},
+            {id: 26, tipo: 'asociacion', texto: 'Relaciona: Eficacia, Eficiencia, Deficiencia', columnaA: ['Eficacia','Eficiencia','Deficiencia'], columnaB: ['Carencia/insuficiencia','Logro objetivos','Recursos óptimos'], respuestasCorrectas: {'Eficacia':'Logro objetivos','Eficiencia':'Recursos óptimos','Deficiencia':'Carencia/insuficiencia'}, comentario: 'Conceptos fundamentales.', repaso: 'Conceptos gestión'},
+            {id: 27, tipo: 'asociacion', texto: 'Relaciona: RGPD, ISO/IEC 27001, WCAG', columnaA: ['RGPD','ISO/IEC 27001','WCAG'], columnaB: ['Accesibilidad web','Seguridad información','Protección datos'], respuestasCorrectas: {'RGPD':'Protección datos','ISO/IEC 27001':'Seguridad información','WCAG':'Accesibilidad web'}, comentario: 'Marcos TI clave.', repaso: 'Normas TI'},
+            {id: 28, tipo: 'asociacion', texto: 'Relaciona: WCAG Perceptible, Operable, Comprensible, Robusto', columnaA: ['Perceptible','Operable','Comprensible','Robusto'], columnaB: ['Compatible tecnologías','Contenido inteligible','Contenido visible','Interfaz utilizable'], respuestasCorrectas: {'Perceptible':'Contenido visible','Operable':'Interfaz utilizable','Comprensible':'Contenido inteligible','Robusto':'Compatible tecnologías'}, comentario: 'Principios POUR.', repaso: 'WCAG 2.2'},
+            {id: 29, tipo: 'asociacion', texto: 'Relaciona: APO, EDM, DSS (COBIT)', columnaA: ['APO','EDM','DSS'], columnaB: ['Gobierno/dirección','Alineación/planeación','Entrega servicios'], respuestasCorrectas: {'APO':'Alineación/planeación','EDM':'Gobierno/dirección','DSS':'Entrega servicios'}, comentario: 'Dominios COBIT.', repaso: 'COBIT 2019'},
+            {id: 30, tipo: 'asociacion', texto: 'Relaciona: Ransomware, Backup, Ágil', columnaA: ['Ransomware','Backup','Ágil'], columnaB: ['Desarrollo adaptable','Recuperación datos','Malware secuestro'], respuestasCorrectas: {'Ransomware':'Malware secuestro','Backup':'Recuperación datos','Ágil':'Desarrollo adaptable'}, comentario: 'TI contemporánea.', repaso: 'Conceptos TI'}
         ];
 
-        let estudiante = {};
-        let respuestasEstudiante = {};
-        let pantallActual = 'inicio';
-        let preguntaActual = 0;
+        let estudiante = {}, respuestasEstudiante = {}, pantallActual = 'inicio', preguntaActual = 0;
         let examenesTomados = JSON.parse(localStorage.getItem('examenesTomados')) || [];
         let terminoSeleccionado = null;
 
         function validarRegistro() {
-            let valido = true;
             const nombre = document.getElementById('nombre').value.trim();
             const cedula = document.getElementById('cedula').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -696,43 +659,33 @@
             document.getElementById('error-cedula').textContent = '';
             document.getElementById('error-email').textContent = '';
 
-            if (!nombre) {
-                document.getElementById('error-nombre').textContent = 'Requerido';
-                document.getElementById('nombre').classList.add('error');
-                valido = false;
-            } else document.getElementById('nombre').classList.remove('error');
-
-            if (!cedula) {
-                document.getElementById('error-cedula').textContent = 'Requerida';
-                document.getElementById('cedula').classList.add('error');
-                valido = false;
-            } else if (!/^\d+$/.test(cedula)) {
-                document.getElementById('error-cedula').textContent = 'Solo números';
-                document.getElementById('cedula').classList.add('error');
-                valido = false;
-            } else document.getElementById('cedula').classList.remove('error');
-
-            if (!email) {
-                document.getElementById('error-email').textContent = 'Requerido';
-                document.getElementById('email').classList.add('error');
-                valido = false;
-            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                document.getElementById('error-email').textContent = 'Email inválido';
-                document.getElementById('email').classList.add('error');
-                valido = false;
-            } else document.getElementById('email').classList.remove('error');
-
-            if (examenesTomados.includes(cedula)) {
-                alert('⚠️ Ya completaste este examen. Un intento solamente.');
+            if (!nombre || !cedula || !email) {
+                if (!nombre) document.getElementById('error-nombre').textContent = 'Requerido';
+                if (!cedula) document.getElementById('error-cedula').textContent = 'Requerida';
+                if (!email) document.getElementById('error-email').textContent = 'Requerido';
                 return false;
             }
 
-            return valido;
+            if (!/^\d+$/.test(cedula)) {
+                document.getElementById('error-cedula').textContent = 'Solo números';
+                return false;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('error-email').textContent = 'Inválido';
+                return false;
+            }
+
+            if (examenesTomados.includes(cedula)) {
+                alert('⚠️ Ya completaste este examen.');
+                return false;
+            }
+
+            return true;
         }
 
         function iniciarExamen() {
             if (!validarRegistro()) return;
-
             estudiante = {
                 nombre: document.getElementById('nombre').value.trim(),
                 cedula: document.getElementById('cedula').value.trim(),
@@ -743,7 +696,6 @@
             preguntaActual = 0;
             respuestasEstudiante = {};
             terminoSeleccionado = null;
-
             mostrarPantalla();
             mostrarPregunta();
         }
@@ -752,10 +704,7 @@
             document.getElementById('pantalla-inicio').classList.remove('activo');
             document.getElementById('pantalla-examen').classList.remove('activo');
             document.getElementById('pantalla-resultados').classList.remove('activo');
-
-            if (pantallActual === 'inicio') document.getElementById('pantalla-inicio').classList.add('activo');
-            else if (pantallActual === 'examen') document.getElementById('pantalla-examen').classList.add('activo');
-            else if (pantallActual === 'resultados') document.getElementById('pantalla-resultados').classList.add('activo');
+            document.getElementById(`pantalla-${pantallActual}`).classList.add('activo');
         }
 
         function mostrarPregunta() {
@@ -773,35 +722,24 @@
                 html += '<div class="opciones">';
                 p.opciones.forEach((op, i) => {
                     const sel = respuestasEstudiante[preguntaActual] === i ? 'seleccionado' : '';
-                    html += `<div class="opcion ${sel}" onclick="seleccionarOpcion(${i})"><input type="radio" ${respuestasEstudiante[preguntaActual] === i ? 'checked' : ''}><span class="opcion-texto">${op}</span></div>`;
+                    html += `<div class="opcion ${sel}" onclick="seleccionarOpcion(${i})"><input type="radio" ${sel ? 'checked' : ''}><span class="opcion-texto">${op}</span></div>`;
                 });
                 html += '</div>';
             } else if (p.tipo === 'verdadero_falso') {
                 const sv = respuestasEstudiante[preguntaActual] === true ? 'seleccionado' : '';
                 const sf = respuestasEstudiante[preguntaActual] === false ? 'seleccionado' : '';
-                html += `<div class="verdadero-falso">
-                    <div class="vf-opcion verdadero ${sv}" onclick="seleccionarVF(true)">✓ Verdadero</div>
-                    <div class="vf-opcion falso ${sf}" onclick="seleccionarVF(false)">✗ Falso</div>
-                </div>`;
+                html += `<div class="verdadero-falso"><div class="vf-opcion verdadero ${sv}" onclick="seleccionarVF(true)">✓ Verdadero</div><div class="vf-opcion falso ${sf}" onclick="seleccionarVF(false)">✗ Falso</div></div>`;
             } else if (p.tipo === 'asociacion') {
-                html += '<div class="instruccion-asociacion">💡 Paso 1: Click en término | Paso 2: Click en definición</div>';
+                html += '<div class="instruccion-asociacion">💡 Paso 1: Click término | Paso 2: Click definición</div>';
                 const rr = respuestasEstudiante[preguntaActual] || {};
-                if (Object.keys(rr).length > 0) {
-                    html += '<div class="asociacion-lista">Respuestas: ' + Object.entries(rr).map(([k,v]) => `${k}→${v}`).join(' | ') + '</div>';
-                } else {
-                    html += '<div class="asociacion-lista"><span class="asociacion-vacia">Sin respuestas aún</span></div>';
-                }
-
-                html += '<div class="asociacion-wrapper">';
-                html += '<div class="asociacion-columna"><div class="asociacion-titulo">A) Términos</div>';
+                html += '<div class="asociacion-lista">' + (Object.keys(rr).length > 0 ? Object.entries(rr).map(([k,v]) => `${k}→${v}`).join(' | ') : '<span class="asociacion-vacia">Sin respuestas</span>') + '</div>';
+                html += '<div class="asociacion-wrapper"><div class="asociacion-columna"><div class="asociacion-titulo">A) Términos</div>';
                 p.columnaA.forEach(t => {
                     const act = terminoSeleccionado === t ? 'termino-activo' : '';
                     const con = rr[t] ? 'conectado' : '';
                     html += `<div class="asociacion-item ${act} ${con}" onclick="clickTermino('${t}')">${t}</div>`;
                 });
-                html += '</div>';
-
-                html += '<div class="asociacion-columna"><div class="asociacion-titulo">B) Definiciones</div>';
+                html += '</div><div class="asociacion-columna"><div class="asociacion-titulo">B) Definiciones</div>';
                 p.columnaB.forEach(d => {
                     const con = Object.values(rr).includes(d) ? 'conectado' : '';
                     html += `<div class="asociacion-item ${con}" onclick="clickDefinicion('${d}')">${d}</div>`;
@@ -818,37 +756,27 @@
         function seleccionarVF(v) { respuestasEstudiante[preguntaActual] = v; mostrarPregunta(); }
         function clickTermino(t) { terminoSeleccionado = terminoSeleccionado === t ? null : t; mostrarPregunta(); }
         function clickDefinicion(d) {
-            if (!terminoSeleccionado) { alert('👈 Selecciona un término primero'); return; }
+            if (!terminoSeleccionado) { alert('👈 Selecciona un término'); return; }
             if (!respuestasEstudiante[preguntaActual]) respuestasEstudiante[preguntaActual] = {};
             respuestasEstudiante[preguntaActual][terminoSeleccionado] = d;
             terminoSeleccionado = null;
             mostrarPregunta();
         }
+        function preguntaAnterior() { if (preguntaActual > 0) { preguntaActual--; terminoSeleccionado = null; mostrarPregunta(); } }
+        function preguntaSiguiente() { if (preguntaActual < bancoPReguntas.length - 1) { preguntaActual++; terminoSeleccionado = null; mostrarPregunta(); } else finalizarExamen(); }
 
-        function preguntaAnterior() {
-            if (preguntaActual > 0) { preguntaActual--; terminoSeleccionado = null; mostrarPregunta(); document.getElementById('pregunta-contenedor').scrollIntoView({behavior:'smooth'}); }
-        }
-
-        function preguntaSiguiente() {
-            if (preguntaActual < bancoPReguntas.length - 1) { preguntaActual++; terminoSeleccionado = null; mostrarPregunta(); document.getElementById('pregunta-contenedor').scrollIntoView({behavior:'smooth'}); }
-            else finalizarExamen();
-        }
-
-        function finalizarExamen() { pantallActual = 'resultados'; mostrarPantalla(); mostrarResultados(); window.scrollTo(0,0); }
+        function finalizarExamen() { pantallActual = 'resultados'; mostrarPantalla(); mostrarResultados(); }
 
         function mostrarResultados() {
             const contenedor = document.getElementById('resultado-contenedor');
             let aciertos = 0;
-
             const resultados = bancoPReguntas.map((p, i) => {
                 let ok = false;
                 if (p.tipo === 'multiple') ok = respuestasEstudiante[i] === p.respuestaCorrecta;
                 else if (p.tipo === 'verdadero_falso') ok = respuestasEstudiante[i] === p.respuestaCorrecta;
                 else if (p.tipo === 'asociacion') {
                     ok = true;
-                    for (let t in p.respuestasCorrectas) {
-                        if (respuestasEstudiante[i]?.[t] !== p.respuestasCorrectas[t]) ok = false;
-                    }
+                    for (let t in p.respuestasCorrectas) if (respuestasEstudiante[i]?.[t] !== p.respuestasCorrectas[t]) ok = false;
                 }
                 if (ok) aciertos++;
                 return {p, ok, i};
@@ -858,70 +786,36 @@
             const apr = aciertos >= 21;
             const pts = aciertos * 0.5;
 
-            let html = `
-                <div class="advertencia-pdf">⚠️ DESCARGA EL PDF - OBLIGATORIO PARA SUBIR A PLATAFORMA</div>
+            let html = `<div class="advertencia-pdf">⚠️ DESCARGA PDF - OBLIGATORIO</div>
                 <div class="resultado-header ${apr ? 'aprobado' : 'reprobado'}">
                     <div class="resultado-icono">${apr ? '✓' : '✗'}</div>
                     <div class="resultado-titulo">${apr ? '¡Felicidades!' : 'No aprobaste'}</div>
-                    <div class="resultado-subtitulo">${apr ? 'Excelente desempeño' : 'Necesitabas 21 correctas (70%)'}</div>
                 </div>
-
                 <div class="puntuacion">
                     <div class="puntuacion-numero">${aciertos}/30</div>
                     <div class="puntuacion-porcentaje">${pct}% - ${pts.toFixed(1)}/15 puntos</div>
                 </div>
-
                 <div class="detalles-respuestas">
-                    <h3 style="margin-bottom: 15px; color: #333;">📋 ANÁLISIS DE TUS RESPUESTAS</h3>
-            `;
+                    <h3>📋 ANÁLISIS</h3>`;
 
             resultados.forEach(({p, ok, i}) => {
-                const estado = ok ? 'respuesta-correcta' : 'respuesta-incorrecta';
-                const textoEstado = ok ? '✓ CORRECTO' : '✗ INCORRECTO';
-
-                html += `
-                    <div class="respuesta-item">
-                        <div class="respuesta-numero">Pregunta ${i + 1}: ${p.texto}</div>
-                        <span class="respuesta-estado ${estado}">${textoEstado}</span>
-                        
-                        ${ok ? `
-                            <div class="justificacion-bien">
-                                <strong>👍 ¡BIEN HECHO!</strong><br>
-                                ${p.comentario}
-                            </div>
-                        ` : `
-                            <div class="justificacion-mejorar">
-                                <strong>📝 LA PRÓXIMA TE IRÁ MEJOR</strong><br>
-                                ${p.comentario}
-                            </div>
-                            <div class="respuesta-correcta-indicada">
-                                <strong>✓ Respuesta correcta:</strong> Revisa la opción o resultado correcto en la plataforma.
-                            </div>
-                        `}
-                        
-                        <div class="sugerencia-repaso">
-                            <strong>📚 Para mejorar:</strong> Repasa "${p.repaso}"
-                        </div>
+                html += `<div class="respuesta-item">
+                    <div class="respuesta-numero">P${i+1}: ${p.texto}</div>
+                    <span class="respuesta-estado ${ok ? 'respuesta-correcta' : 'respuesta-incorrecta'}">${ok ? '✓ CORRECTO' : '✗ INCORRECTO'}</span>
+                    <div class="justificacion ${ok ? 'justificacion-bien' : 'justificacion-mejorar'}">
+                        <strong>${ok ? '👍 ¡Bien hecho!' : '📝 La próxima te irá mejor'}</strong><br>${p.comentario}
                     </div>
-                `;
+                    <div class="sugerencia-repaso">📚 Repasa: ${p.repaso}</div>
+                </div>`;
             });
 
-            html += `</div>`;
-            html += `
-                <div style="background: #f0f4ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 5px; margin: 30px 0;">
-                    <strong>📊 Información del Estudiante:</strong><br>
-                    Nombre: ${estudiante.nombre}<br>
-                    Cédula: ${estudiante.cedula}<br>
-                    Email: ${estudiante.email}<br>
-                    ${estudiante.carrera ? `Carrera: ${estudiante.carrera}<br>` : ''}
-                    Fecha: ${new Date().toLocaleDateString('es-ES')}<br>
-                    <strong>Aciertos: ${aciertos}/30 | Puntuación: ${pts.toFixed(1)}/15</strong>
-                </div>
-
-                <div class="botones-finales">
-                    <button class="btn-descargar" onclick="descargarPDF()">💾 Descargar PDF - OBLIGATORIO</button>
-                </div>
-            `;
+            html += `</div><div style="background:#f0f4ff;border-left:4px solid #667eea;padding:15px;border-radius:5px;margin:20px 0;">
+                <strong>Nombre:</strong> ${estudiante.nombre} | <strong>Cédula:</strong> ${estudiante.cedula}<br>
+                <strong>Email:</strong> ${estudiante.email} | <strong>Fecha:</strong> ${new Date().toLocaleDateString('es-ES')}
+            </div>
+            <div class="botones-finales">
+                <button class="btn-descargar" onclick="descargarPDF()">💾 Descargar PDF</button>
+            </div>`;
 
             contenedor.innerHTML = html;
         }
@@ -933,9 +827,7 @@
                 else if (p.tipo === 'verdadero_falso') { if (respuestasEstudiante[i] === p.respuestaCorrecta) aciertos++; }
                 else if (p.tipo === 'asociacion') {
                     let ok = true;
-                    for (let t in p.respuestasCorrectas) {
-                        if (respuestasEstudiante[i]?.[t] !== p.respuestasCorrectas[t]) ok = false;
-                    }
+                    for (let t in p.respuestasCorrectas) if (respuestasEstudiante[i]?.[t] !== p.respuestasCorrectas[t]) ok = false;
                     if (ok) aciertos++;
                 }
             });
@@ -944,93 +836,75 @@
             const pct = ((aciertos / 30) * 100).toFixed(1);
             const apr = aciertos >= 21;
 
-            const htmlPDF = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
-*{margin:0;padding:0}body{font-family:Arial,sans-serif;color:#333;line-height:1.4}
-.header{border-bottom:2px solid #667eea;padding:15px 0;margin-bottom:15px}
-.titulo{font-size:18px;font-weight:bold;color:#667eea;margin-bottom:8px}
-.info{font-size:11px;line-height:1.6;margin:2px 0}
-.resultado{font-size:14px;font-weight:bold;margin:15px 0;padding:10px;color:${apr?'#16a34a':'#dc2626'};background:${apr?'#f0fdf4':'#fef2f2'};border-left:3px solid ${apr?'#22c55e':'#ef4444'};}
-.preg{margin:12px 0;padding:8px;background:#f9f9f9;border-left:2px solid #667eea;page-break-inside:avoid}
-.preg-num{font-weight:bold;margin-bottom:3px;font-size:12px}
-.resp{font-size:11px;margin:3px 0}
+            let html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0}body{font-family:Arial;color:#333;font-size:11px;line-height:1.3}
+.header{border-bottom:2px solid #667eea;padding:10px 0;margin-bottom:10px}
+.titulo{font-size:16px;font-weight:bold;color:#667eea;margin-bottom:5px}
+.info{font-size:10px;margin:2px 0}
+.resultado{font-size:12px;font-weight:bold;color:${apr?'#16a34a':'#dc2626'};background:${apr?'#f0fdf4':'#fef2f2'};padding:8px;border-left:2px solid ${apr?'#22c55e':'#ef4444'};margin:10px 0}
+.preg{margin:8px 0;padding:6px;background:#f9f9f9;border-left:2px solid #667eea;page-break-inside:avoid}
+.resp-txt{margin:2px 0;font-size:10px}
 .bien{color:#16a34a;font-weight:bold}
-.mejorar{color:#dc2626;font-weight:bold}
-.footer{border-top:2px solid #667eea;padding:10px 0;text-align:center;font-size:10px;color:#666;margin-top:20px}
-.sep{page-break-after:always;margin:20px 0}
-</style></head><body>
-<div class="header">
+.mal{color:#dc2626;font-weight:bold}
+.footer{border-top:2px solid #667eea;padding:8px 0;text-align:center;font-size:9px;color:#999;margin-top:15px}
+.sep{page-break-after:always;margin:10px 0}
+</style></head><body>`;
+
+            html += `<div class="header">
 <div class="titulo">EXAMEN AUDITORÍA DE SISTEMAS I</div>
-<div class="info"><b>Estudiante:</b> ${estudiante.nombre}</div>
-<div class="info"><b>Cédula:</b> ${estudiante.cedula}</div>
-<div class="info"><b>Email:</b> ${estudiante.email}</div>
-${estudiante.carrera ? `<div class="info"><b>Carrera:</b> ${estudiante.carrera}</div>` : ''}
-<div class="info"><b>Fecha:</b> ${new Date().toLocaleDateString('es-ES')}</div>
+<div class="info">Estudiante: ${estudiante.nombre} | Cédula: ${estudiante.cedula}</div>
+<div class="info">Email: ${estudiante.email} | Fecha: ${new Date().toLocaleDateString('es-ES')}</div>
 </div>
 
 <div class="resultado">${apr?'✓ APROBADO':'✗ NO APROBADO'} | ${aciertos}/30 (${pct}%) | ${pts.toFixed(1)}/15 puntos</div>
 
-<h3 style="font-size:13px;margin:12px 0;">DETALLE DE RESPUESTAS</h3>
-`;
+<h3 style="font-size:12px;margin:8px 0;">ANÁLISIS DE RESPUESTAS</h3>`;
 
-            let cuerpo = '';
             bancoPReguntas.forEach((p, i) => {
                 let ok = false;
                 if (p.tipo === 'multiple') ok = respuestasEstudiante[i] === p.respuestaCorrecta;
                 else if (p.tipo === 'verdadero_falso') ok = respuestasEstudiante[i] === p.respuestaCorrecta;
                 else if (p.tipo === 'asociacion') {
                     ok = true;
-                    for (let t in p.respuestasCorrectas) {
-                        if (respuestasEstudiante[i]?.[t] !== p.respuestasCorrectas[t]) ok = false;
-                    }
+                    for (let t in p.respuestasCorrectas) if (respuestasEstudiante[i]?.[t] !== p.respuestasCorrectas[t]) ok = false;
                 }
 
-                cuerpo += `
-<div class="preg">
-<div class="preg-num">P${i+1}: ${p.texto}</div>
-<div class="resp"><span class="${ok?'bien':'mejorar'}">${ok?'✓ CORRECTO':'✗ INCORRECTO'}</span></div>
-<div class="resp"><b>${ok?'👍 ¡Bien hecho!':'📝 La próxima te irá mejor'}</b></div>
-<div class="resp" style="font-size:10px;margin-top:4px;">${p.comentario}</div>
-<div class="resp" style="font-size:10px;color:#666;margin-top:4px;"><b>Repasa:</b> ${p.repaso}</div>
-</div>
-`;
+                html += `<div class="preg">
+<div class="resp-txt"><strong>P${i+1}:</strong> ${p.texto}</div>
+<div class="resp-txt"><span class="${ok?'bien':'mal'}">${ok?'✓ CORRECTO':'✗ INCORRECTO'}</span> - ${ok?'👍 ¡Bien hecho!':'📝 La próxima te irá mejor'}</div>
+<div class="resp-txt" style="font-size:9px;margin-top:2px;">${p.comentario}</div>
+<div class="resp-txt" style="font-size:9px;color:#666;">Repasa: ${p.repaso}</div>
+</div>`;
             });
 
-            const htmlFinal = htmlPDF + cuerpo + `
-<div class="sep"></div>
+            html += `<div class="sep"></div>
 <div class="header">
 <div class="titulo">RESUMEN FINAL</div>
-<div class="info"><b>Estudiante:</b> ${estudiante.nombre}</div>
-<div class="info"><b>Cédula:</b> ${estudiante.cedula}</div>
-<div class="info"><b>Correo:</b> ${estudiante.email}</div>
-<div class="info"><b>Fecha:</b> ${new Date().toLocaleDateString('es-ES')}</div>
+<div class="info">Estudiante: ${estudiante.nombre}</div>
+<div class="info">Cédula: ${estudiante.cedula}</div>
+<div class="info">Fecha: ${new Date().toLocaleDateString('es-ES')}</div>
 </div>
 
-<div class="resultado" style="text-align:center;font-size:16px;">
-${apr?'✓ EXAMEN APROBADO':'✗ EXAMEN NO APROBADO'}<br>
-Aciertos: ${aciertos}/30 | Porcentaje: ${pct}%<br>
-Puntuación: ${pts.toFixed(1)}/15 puntos
-</div>
+<div class="resultado" style="text-align:center;">${apr?'✓ APROBADO':'✗ NO APROBADO'} | ${aciertos}/30 | ${pct}% | ${pts.toFixed(1)}/15 puntos</div>
 
 <div class="footer">
-<p>© 2024 Examen Auditoría de Sistemas I</p>
-<p>Documento generado automáticamente por el sistema de evaluación</p>
+<p>© 2024 Auditoría de Sistemas I</p>
 </div>
-</body></html>
-`;
+</body></html>`;
 
             const ele = document.createElement('div');
-            ele.innerHTML = htmlFinal;
+            ele.innerHTML = html;
             const opt = {
-                margin: [8, 8, 8, 8],
+                margin: [6, 6, 6, 6],
                 filename: `Examen_${estudiante.cedula}_${estudiante.nombre.replace(/\s/g,'_')}.pdf`,
-                image: {type:'jpeg',quality:0.95},
-                html2canvas: {scale:2,useCORS:true},
+                image: {type:'jpeg',quality:0.9},
+                html2canvas: {scale:1.5,useCORS:true},
                 jsPDF: {unit:'mm',format:'a4',orientation:'portrait',compress:true}
             };
             html2pdf().set(opt).from(ele).save().then(() => {
                 examenesTomados.push(estudiante.cedula);
                 localStorage.setItem('examenesTomados', JSON.stringify(examenesTomados));
-                alert('✓ PDF descargado correctamente\n\n⚠️ Sube este archivo a la plataforma como evidencia');
+                alert('✓ PDF descargado\n\n⚠️ Sube a la plataforma');
             });
         }
     </script>
