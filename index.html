@@ -547,7 +547,7 @@
     <div class="container">
         <div class="header">
             <h1>📋 Examen Auditoría de Sistemas I</h1>
-            <p>Banco de 30 preguntas - Puntaje total: 15 puntos</p>
+            <p>18 preguntas avanzadas · Planificación, ejecución y auditoría forense · Puntaje total: 9 puntos</p>
         </div>
 
         <div class="content">
@@ -555,7 +555,7 @@
                 <div class="inicio-form">
                     <div class="info-box">
                         <strong>📌 Información:</strong><br>
-                        ⏱️ Sin límite | 📊 30 preguntas | ⚠️ 1 intento | 💾 PDF obligatorio
+                        ⏱️ Sin límite | 📊 18 preguntas avanzadas | ⚠️ 1 intento | 💾 PDF obligatorio
                     </div>
 
                     <div class="form-group">
@@ -608,42 +608,228 @@
         </div>
 
         <div class="footer">
-            <p>© 2024 Examen Auditoría de Sistemas I</p>
+            <p>© 2025 Examen Auditoría de Sistemas I — Preguntas Avanzadas</p>
         </div>
     </div>
 
     <script>
         const bancoPReguntas = [
-            {id: 1, tipo: 'multiple', texto: '¿Cuál describe mejor la eficacia en un sistema de información?', opciones: ['Usar pocos recursos','Cumplir objetivos propuestos','Reducir costos','Aumentar usuarios'], respuestaCorrecta: 1, comentario: 'La eficacia se relaciona con el logro de objetivos.', repaso: 'Eficacia vs Eficiencia'},
-            {id: 2, tipo: 'multiple', texto: '¿Cuál describe mejor la eficiencia en TI?', opciones: ['Lo correcto con menos recursos','Cumplir ley','Corregir errores','Garantizar privacidad'], respuestaCorrecta: 0, comentario: 'La eficiencia optimiza recursos.', repaso: 'Conceptos de eficiencia'},
-            {id: 3, tipo: 'multiple', texto: 'Una deficiencia en auditoría es:', opciones: ['Objetivo estratégico','Mejora implementada','Carencia o insuficiencia','Política de privacidad'], respuestaCorrecta: 2, comentario: 'Deficiencia = ausencia o insuficiencia.', repaso: 'Conceptos de auditoría'},
-            {id: 4, tipo: 'multiple', texto: '¿Norma principal para SGSI?', opciones: ['ISO 9001','ISO/IEC 27001','IEEE 829','WCAG 2.2'], respuestaCorrecta: 1, comentario: 'ISO/IEC 27001 es el estándar.', repaso: 'Normas ISO'},
-            {id: 5, tipo: 'multiple', texto: 'El RGPD se caracteriza por:', opciones: ['Aplicarse solo en España','Ser metodología ágil','Alcance extraterritorial','Software libre'], respuestaCorrecta: 2, comentario: 'RGPD aplica extraterritorialmente.', repaso: 'RGPD y jurisdicción'},
-            {id: 6, tipo: 'multiple', texto: '¿Principio del artículo 5 RGPD?', opciones: ['Compresión','Minimización de datos','Desarrollo incremental','Redundancia'], respuestaCorrecta: 1, comentario: 'Minimización de datos es clave.', repaso: 'Principios RGPD'},
-            {id: 7, tipo: 'multiple', texto: '¿Nivel AA en accesibilidad?', opciones: ['Nivel A','Nivel intermedio','Nivel avanzado','Referencia legal'], respuestaCorrecta: 3, comentario: 'AA es el estándar legal.', repaso: 'Niveles WCAG'},
-            {id: 8, tipo: 'multiple', texto: '¿POUR en WCAG significa?', opciones: ['Privacidad/Operación/Utilidad/Red','Perceptible/Operable/Comprensible/Robusto','Planeación/Organización/Uso/Riesgo','Protección/Optimización/Usabilidad/Rendimiento'], respuestaCorrecta: 1, comentario: 'Principios POUR en WCAG.', repaso: 'Principios WCAG'},
-            {id: 9, tipo: 'multiple', texto: 'Sistema web accesible debe:', opciones: ['Solo mouse','Colores para señalización','Operable con teclado','Animaciones intensas'], respuestaCorrecta: 2, comentario: 'Teclado es esencial.', repaso: 'Accesibilidad sin mouse'},
-            {id: 10, tipo: 'multiple', texto: 'El PESI sirve para:', opciones: ['Contraseñas','Planificar TI estratégicamente','Sitios accesibles','Eliminar ransomware'], respuestaCorrecta: 1, comentario: 'PESI alinea TI al negocio.', repaso: 'Plan Estratégico TI'},
-            {id: 11, tipo: 'multiple', texto: 'Objetivo gobierno TI COBIT 2019:', opciones: ['Reducir personal','Eliminar auditorías','Generar valor','Programar rápido'], respuestaCorrecta: 2, comentario: 'Generar valor es central.', repaso: 'COBIT 2019'},
-            {id: 12, tipo: 'multiple', texto: 'Dominio de COBIT 2019:', opciones: ['Rendering','APO','CSS3','SQLX'], respuestaCorrecta: 1, comentario: 'APO es un dominio clave.', repaso: 'Dominios COBIT'},
-            {id: 13, tipo: 'multiple', texto: 'Ransomware es:', opciones: ['BD distribuida','Malware que cifra datos','Accesibilidad web','Principio RGPD'], respuestaCorrecta: 1, comentario: 'Ransomware secuestra información.', repaso: 'Ransomware'},
-            {id: 14, tipo: 'multiple', texto: 'Defensa contra ransomware:', opciones: ['Cambiar logo','Backups confiables','Eliminar auditorías','Aumentar contraste'], respuestaCorrecta: 1, comentario: 'Backups son la mejor defensa.', repaso: 'Backup y recuperación'},
-            {id: 15, tipo: 'multiple', texto: 'Ataque ransomware - acción correcta:', opciones: ['Pagar rescate','Ignorar','Aislar y preservar evidencia','Borrar registros'], respuestaCorrecta: 2, comentario: 'Aislar es correcto.', repaso: 'Respuesta a incidentes'},
-            {id: 16, tipo: 'multiple', texto: '¿Valor Manifiesto Ágil?', opciones: ['Documentación exhaustiva','Seguir plan rígido','Individuos e interacciones','Contratos rígidos'], respuestaCorrecta: 2, comentario: 'Las personas son centro.', repaso: 'Manifiesto Ágil'},
-            {id: 17, tipo: 'multiple', texto: 'Progreso en Ágil medido por:', opciones: ['Reuniones','Documentos','Software funcionando','Diagramas'], respuestaCorrecta: 2, comentario: 'Software es métrica.', repaso: 'Ágil - métricas'},
-            {id: 18, tipo: 'multiple', texto: 'Actividad 1 - estudiante debe:', opciones: ['Penetration testing','Diagnosticar necesidades TI','Implementar SIEM','Programar'], respuestaCorrecta: 1, comentario: 'Diagnóstico es fundamental.', repaso: 'Diagnóstico organizacional'},
-            {id: 19, tipo: 'multiple', texto: '¿Relación diagnóstico y auditoría TI?', opciones: ['No hay','Identifica procesos y riesgos','Solo RR.HH.','Sustituye auditoría'], respuestaCorrecta: 1, comentario: 'Diagnóstico contextualiza.', repaso: 'Fases de auditoría'},
-            {id: 20, tipo: 'multiple', texto: 'Auditoría moderna es:', opciones: ['Solo hardware','Solo contraseñas','Holística e integral','Solo legal'], respuestaCorrecta: 2, comentario: 'Auditoría es integral.', repaso: 'Auditoría moderna'},
-            {id: 21, tipo: 'verdadero_falso', texto: 'Eficiencia y eficacia son lo mismo.', respuestaCorrecta: false, comentario: 'Eficacia = objetivos; Eficiencia = recursos.', repaso: 'Diferencia conceptual'},
-            {id: 22, tipo: 'verdadero_falso', texto: 'RGPD exige responsabilidad proactiva.', respuestaCorrecta: true, comentario: 'Accountability es principio.', repaso: 'RGPD - Accountability'},
-            {id: 23, tipo: 'verdadero_falso', texto: 'Sitio accesible depende solo del mouse.', respuestaCorrecta: false, comentario: 'Debe funcionar con teclado.', repaso: 'Accesibilidad múltiple'},
-            {id: 24, tipo: 'verdadero_falso', texto: 'COBIT 2019 distingue gobierno de gestión.', respuestaCorrecta: true, comentario: 'EDM vs APO/BAI/DSS.', repaso: 'COBIT 2019'},
-            {id: 25, tipo: 'verdadero_falso', texto: 'Responder cambio < seguir plan en Ágil.', respuestaCorrecta: false, comentario: 'Adaptación es principio.', repaso: 'Principios Ágil'},
-            {id: 26, tipo: 'asociacion', texto: 'Relaciona: Eficacia, Eficiencia, Deficiencia', columnaA: ['Eficacia','Eficiencia','Deficiencia'], columnaB: ['Carencia/insuficiencia','Logro objetivos','Recursos óptimos'], respuestasCorrectas: {'Eficacia':'Logro objetivos','Eficiencia':'Recursos óptimos','Deficiencia':'Carencia/insuficiencia'}, comentario: 'Conceptos fundamentales.', repaso: 'Conceptos gestión'},
-            {id: 27, tipo: 'asociacion', texto: 'Relaciona: RGPD, ISO/IEC 27001, WCAG', columnaA: ['RGPD','ISO/IEC 27001','WCAG'], columnaB: ['Accesibilidad web','Seguridad información','Protección datos'], respuestasCorrectas: {'RGPD':'Protección datos','ISO/IEC 27001':'Seguridad información','WCAG':'Accesibilidad web'}, comentario: 'Marcos TI clave.', repaso: 'Normas TI'},
-            {id: 28, tipo: 'asociacion', texto: 'Relaciona: WCAG Perceptible, Operable, Comprensible, Robusto', columnaA: ['Perceptible','Operable','Comprensible','Robusto'], columnaB: ['Compatible tecnologías','Contenido inteligible','Contenido visible','Interfaz utilizable'], respuestasCorrectas: {'Perceptible':'Contenido visible','Operable':'Interfaz utilizable','Comprensible':'Contenido inteligible','Robusto':'Compatible tecnologías'}, comentario: 'Principios POUR.', repaso: 'WCAG 2.2'},
-            {id: 29, tipo: 'asociacion', texto: 'Relaciona: APO, EDM, DSS (COBIT)', columnaA: ['APO','EDM','DSS'], columnaB: ['Gobierno/dirección','Alineación/planeación','Entrega servicios'], respuestasCorrectas: {'APO':'Alineación/planeación','EDM':'Gobierno/dirección','DSS':'Entrega servicios'}, comentario: 'Dominios COBIT.', repaso: 'COBIT 2019'},
-            {id: 30, tipo: 'asociacion', texto: 'Relaciona: Ransomware, Backup, Ágil', columnaA: ['Ransomware','Backup','Ágil'], columnaB: ['Desarrollo adaptable','Recuperación datos','Malware secuestro'], respuestasCorrectas: {'Ransomware':'Malware secuestro','Backup':'Recuperación datos','Ágil':'Desarrollo adaptable'}, comentario: 'TI contemporánea.', repaso: 'Conceptos TI'}
+            /* ── BLOQUE 1: ALCANCE Y RIESGOS ── */
+            {id: 1, tipo: 'multiple',
+             texto: '¿Qué elemento es INDISPENSABLE al definir el alcance de una auditoría de sistemas para garantizar su alineación con el negocio?',
+             opciones: [
+                 'Listar el inventario de hardware disponible',
+                 'Identificar los objetivos estratégicos del negocio y los sistemas que los soportan',
+                 'Revisar el organigrama de TI',
+                 'Seleccionar la herramienta de auditoría más costosa'
+             ],
+             respuestaCorrecta: 1,
+             comentario: 'El alcance debe partir de los objetivos del negocio: qué procesos críticos existen, qué sistemas los soportan, qué riesgos enfrentan y qué regulaciones aplican. Sin esa alineación, la auditoría puede cubrir áreas irrelevantes y omitir las críticas.',
+             repaso: 'Alcance de auditoría y alineación estratégica'},
+
+            {id: 2, tipo: 'multiple',
+             texto: '¿Cuál de las siguientes herramientas se utiliza correctamente para clasificar riesgos tecnológicos ANTES de iniciar la auditoría?',
+             opciones: [
+                 'Diagrama de Gantt para planificar actividades',
+                 'Matriz de riesgos que combina probabilidad e impacto, apoyada en dominios COBIT 2019',
+                 'Árbol de decisión para seleccionar proveedores',
+                 'Benchmarking de costos operativos'
+             ],
+             respuestaCorrecta: 1,
+             comentario: 'La matriz de riesgos (probabilidad × impacto) permite priorizar los riesgos tecnológicos. COBIT 2019 provee el marco de dominios (EDM, APO, BAI, DSS, MEA) y el PESI aporta el contexto estratégico para identificar qué sistemas son críticos.',
+             repaso: 'Matriz de riesgos, PESI, COBIT 2019'},
+
+            /* ── BLOQUE 2: PLAN DE AUDITORÍA ── */
+            {id: 3, tipo: 'multiple',
+             texto: 'En el plan de auditoría de un sistema de pedidos en línea, ¿cuál de los siguientes componentes define CORRECTAMENTE las métricas de desempeño del proceso auditor?',
+             opciones: [
+                 'Número de reuniones realizadas con el cliente',
+                 'Porcentaje de hallazgos documentados, tiempo de ejecución y cobertura de controles evaluados',
+                 'Presupuesto total del proyecto de desarrollo',
+                 'Cantidad de servidores físicos en el datacenter'
+             ],
+             respuestaCorrecta: 1,
+             comentario: 'Las métricas de desempeño de la auditoría deben medir su propia eficacia: % de controles cubiertos, número de hallazgos por área, porcentaje de recomendaciones implementadas y tiempo ejecutado vs. planificado. Estos indicadores permiten evaluar si la auditoría cumplió su objetivo.',
+             repaso: 'Plan de auditoría - métricas y KPIs'},
+
+            {id: 4, tipo: 'multiple',
+             texto: '¿Cuál es la función principal del PESI (Plan Estratégico de Sistemas de Información) dentro de una auditoría de TI?',
+             opciones: [
+                 'Establecer los salarios del equipo de auditoría',
+                 'Proporcionar el contexto estratégico que permite priorizar los sistemas y riesgos a auditar',
+                 'Definir la arquitectura técnica de los servidores',
+                 'Reemplazar el plan de auditoría cuando no existe presupuesto'
+             ],
+             respuestaCorrecta: 1,
+             comentario: 'El PESI alinea las TI con la estrategia del negocio, indicando qué sistemas son prioritarios, qué proyectos están en marcha y qué brechas existen. Para la auditoría, esto es clave: permite focalizar el trabajo en los sistemas estratégicamente críticos y evaluar si TI realmente soporta el negocio.',
+             repaso: 'PESI y su rol en la auditoría de TI'},
+
+            /* ── BLOQUE 3: CONTROLES Y CUMPLIMIENTO ── */
+            {id: 5, tipo: 'asociacion',
+             texto: 'En una plataforma de e-commerce, relaciona cada tipo de control con su ejemplo concreto:',
+             columnaA: ['Control Preventivo', 'Control Detectivo', 'Control Correctivo'],
+             columnaB: [
+                 'Validación de formato y límites en el formulario de pedido antes de procesar',
+                 'Alerta automática por transacción inusual detectada en el log de ventas',
+                 'Reversión de cargo y bloqueo de cuenta tras confirmar fraude'
+             ],
+             respuestasCorrectas: {
+                 'Control Preventivo': 'Validación de formato y límites en el formulario de pedido antes de procesar',
+                 'Control Detectivo': 'Alerta automática por transacción inusual detectada en el log de ventas',
+                 'Control Correctivo': 'Reversión de cargo y bloqueo de cuenta tras confirmar fraude'
+             },
+             comentario: 'Preventivo: actúa antes del evento (validaciones, autenticación MFA). Detectivo: actúa durante o después para identificar el problema (logs, alertas SIEM). Correctivo: repara el daño causado y restaura el estado seguro (reversión, parcheo, bloqueo).',
+             repaso: 'Tipos de controles: preventivo, detectivo, correctivo'},
+
+            {id: 6, tipo: 'multiple',
+             texto: '¿Cuál de los siguientes criterios es ESENCIAL para considerar un control como eficaz Y eficiente?',
+             opciones: [
+                 'Que sea el más caro del mercado y esté certificado por una consultora internacional',
+                 'Que reduzca el riesgo al nivel aceptable (eficacia) sin consumir más recursos de los necesarios (eficiencia)',
+                 'Que esté documentado en inglés y revisado anualmente',
+                 'Que lo apruebe el área de TI sin necesidad de validación por parte del negocio'
+             ],
+             respuestaCorrecta: 1,
+             comentario: 'Un control es eficaz si cumple su objetivo de reducir el riesgo al nivel de tolerancia definido. Es eficiente si lo logra optimizando el uso de recursos (tiempo, dinero, personal). Ambos criterios deben coexistir: un control eficaz pero ineficiente es costoso; uno eficiente pero ineficaz no protege.',
+             repaso: 'Criterios de eficacia y eficiencia de controles'},
+
+            {id: 7, tipo: 'verdadero_falso',
+             texto: 'ISO/IEC 27001 puede evaluarse mediante la revisión de la Declaración de Aplicabilidad (SoA) y la evidencia de implementación de los controles del Anexo A.',
+             respuestaCorrecta: true,
+             comentario: 'La Declaración de Aplicabilidad (Statement of Applicability) es el documento central de ISO/IEC 27001 que lista todos los controles del Anexo A, indica cuáles aplican y documenta la justificación. Auditar el SGSI implica verificar que los controles declarados como aplicables tengan evidencia real de implementación.',
+             repaso: 'ISO/IEC 27001 - SoA y Anexo A'},
+
+            /* ── BLOQUE 4: EJECUCIÓN DE LA AUDITORÍA ── */
+            {id: 8, tipo: 'asociacion',
+             texto: 'Relaciona cada fase de la ejecución de la auditoría de sistemas con su actividad principal:',
+             columnaA: ['Planificación', 'Trabajo de campo', 'Comunicación de resultados'],
+             columnaB: [
+                 'Definición de alcance, objetivos, recursos y cronograma del proceso auditor',
+                 'Recolección de evidencias, pruebas de controles y entrevistas con responsables',
+                 'Elaboración del informe final con hallazgos, riesgos y recomendaciones'
+             ],
+             respuestasCorrectas: {
+                 'Planificación': 'Definición de alcance, objetivos, recursos y cronograma del proceso auditor',
+                 'Trabajo de campo': 'Recolección de evidencias, pruebas de controles y entrevistas con responsables',
+                 'Comunicación de resultados': 'Elaboración del informe final con hallazgos, riesgos y recomendaciones'
+             },
+             comentario: 'Las fases de una auditoría de sistemas son: (1) Planificación: alcance, riesgos, cronograma; (2) Trabajo de campo: ejecución de pruebas, recolección de evidencia; (3) Comunicación: informe con hallazgos y recomendaciones priorizados por riesgo.',
+             repaso: 'Fases de la ejecución de auditoría de sistemas'},
+
+            {id: 9, tipo: 'multiple',
+             texto: 'Para evaluar los controles de acceso durante una auditoría, ¿qué tipo de evidencia es MÁS relevante?',
+             opciones: [
+                 'Facturas de compra del software de gestión de identidades',
+                 'Logs de acceso, matriz de roles y permisos (RBAC), y revisiones periódicas de cuentas activas',
+                 'Certificados de capacitación del personal de TI',
+                 'Manual de usuario del sistema de autenticación'
+             ],
+             respuestaCorrecta: 1,
+             comentario: 'Para auditar controles de acceso se requiere: logs de autenticación (exitosos y fallidos), la matriz de roles y permisos implementada, reportes de revisión de cuentas (incluyendo cuentas inactivas y privilegiadas), y registros de solicitudes de acceso aprobadas. La evidencia documental sola es insuficiente.',
+             repaso: 'Evidencias para auditar controles de acceso'},
+
+            /* ── BLOQUE 5: LOGS Y MONITOREO ── */
+            {id: 10, tipo: 'multiple',
+             texto: '¿Cuál es la razón principal por la que es crítico garantizar la INTEGRIDAD de los logs durante una auditoría de TI?',
+             opciones: [
+                 'Para que el sistema funcione más rápido durante la auditoría',
+                 'Porque los logs alterados o eliminados destruyen la cadena de custodia y hacen que la evidencia sea inadmisible',
+                 'Para cumplir con los requisitos de accesibilidad web WCAG 2.2',
+                 'Porque los logs duplicados aumentan el almacenamiento disponible'
+             ],
+             respuestaCorrecta: 1,
+             comentario: 'Los logs son la fuente primaria de evidencia en una auditoría de TI. Si un atacante o actor interno los altera o elimina, se pierde la capacidad de reconstruir eventos. Para garantizar su integridad se utilizan: hash criptográfico (SHA-256), almacenamiento en repositorios de solo escritura (WORM), sincronización NTP y envío a un SIEM centralizado.',
+             repaso: 'Integridad y confiabilidad de logs en auditoría'},
+
+            {id: 11, tipo: 'verdadero_falso',
+             texto: 'Un SIEM (Security Information and Event Management) puede correlacionar eventos de múltiples fuentes en tiempo real para detectar patrones de ataque que serían invisibles analizando cada fuente por separado.',
+             respuestaCorrecta: true,
+             comentario: 'El SIEM centraliza logs de firewalls, servidores, aplicaciones, endpoints y bases de datos, aplicando reglas de correlación y machine learning para detectar ataques multi-etapa (ej.: reconocimiento + explotación + exfiltración). Sin correlación, un mismo ataque parece eventos aislados sin relación.',
+             repaso: 'SIEM - correlación de eventos y detección de incidentes'},
+
+            /* ── BLOQUE 6: AUDITORÍA FORENSE ── */
+            {id: 12, tipo: 'multiple',
+             texto: 'Al reconstruir la línea de tiempo de un incidente forense, ¿cuál es el principal DESAFÍO técnico al correlacionar logs de distintos sistemas?',
+             opciones: [
+                 'Que los sistemas usan diferentes colores de interfaz',
+                 'La falta de sincronización de relojes (NTP) genera desfases temporales que dificultan ordenar correctamente los eventos',
+                 'Que los logs están en idiomas diferentes',
+                 'La ausencia de licencias de software en los servidores auditados'
+             ],
+             respuestaCorrecta: 1,
+             comentario: 'El mayor desafío forense es la sincronización temporal: si los relojes de los servidores no están sincronizados con NTP, un evento en el servidor A aparece a las 10:00 y el evento relacionado en el servidor B aparece a las 09:57, haciendo imposible reconstruir la secuencia real. Otros desafíos incluyen formatos heterogéneos y logs incompletos por rotación.',
+             repaso: 'Línea de tiempo forense - desafíos de sincronización NTP'},
+
+            {id: 13, tipo: 'multiple',
+             texto: '¿Qué técnica forense permite detectar actividad maliciosa oculta correlacionando eventos de distintas fuentes?',
+             opciones: [
+                 'Aplicar parches de seguridad en todos los servidores simultáneamente',
+                 'Correlación de eventos mediante reglas SIEM y análisis de anomalías estadísticas en comportamiento de usuarios (UEBA)',
+                 'Realizar copias de seguridad cifradas de la base de datos',
+                 'Cambiar las contraseñas de todos los usuarios después del incidente'
+             ],
+             respuestaCorrecta: 1,
+             comentario: 'La correlación de eventos usa reglas lógicas (ej.: si login fallido > 5 veces + acceso a directorio sensible en < 2 min = alerta de fuerza bruta). UEBA añade la capa de comportamiento: detecta cuando un usuario accede a volúmenes de datos inusuales respecto a su patrón histórico, revelando insiders o cuentas comprometidas.',
+             repaso: 'Correlación forense - SIEM y UEBA'},
+
+            /* ── BLOQUE 7: ANÁLISIS DE INCIDENTES ── */
+            {id: 14, tipo: 'verdadero_falso',
+             texto: 'Si se detectan accesos fuera de horario, exportaciones masivas de datos y transacciones atípicas simultáneas, la investigación forense debe descartarse si el usuario implicado tiene credenciales válidas.',
+             respuestaCorrecta: false,
+             comentario: 'Credenciales válidas NO descartan fraude ni compromiso de cuenta. La investigación debe continuar: credenciales pueden ser robadas (phishing, credential stuffing) o el insider puede usar las suyas para el fraude. Se analiza: ¿el comportamiento es consistente con el perfil histórico del usuario?, ¿accedió desde una IP/dispositivo habitual?, ¿autorizó el negocio esas transacciones?',
+             repaso: 'Investigación de fraude - credenciales válidas no descartan incidente'},
+
+            {id: 15, tipo: 'asociacion',
+             texto: 'Relaciona cada indicador de fraude con el control que debió prevenir o detectarlo:',
+             columnaA: ['Accesos fuera de horario', 'Exportación masiva de datos', 'Transacciones atípicas de alto monto'],
+             columnaB: [
+                 'Restricción de acceso por horario y alertas de login nocturno en el SIEM',
+                 'Control de DLP (Data Loss Prevention) y auditoría de consultas masivas a BD',
+                 'Reglas de aprobación escalonada (4-eyes principle) para montos superiores al umbral'
+             ],
+             respuestasCorrectas: {
+                 'Accesos fuera de horario': 'Restricción de acceso por horario y alertas de login nocturno en el SIEM',
+                 'Exportación masiva de datos': 'Control de DLP (Data Loss Prevention) y auditoría de consultas masivas a BD',
+                 'Transacciones atípicas de alto monto': 'Reglas de aprobación escalonada (4-eyes principle) para montos superiores al umbral'
+             },
+             comentario: 'Cada indicador de fraude corresponde a un control específico omitido: (1) sin restricción horaria el atacante opera de noche sin alertas; (2) sin DLP se exfiltran datos masivamente; (3) sin aprobación dual se procesan transacciones no autorizadas de alto valor.',
+             repaso: 'Controles preventivos y detectivos para fraude interno'},
+
+            /* ── BLOQUE 8: DICTAMEN FORENSE ── */
+            {id: 16, tipo: 'multiple',
+             texto: '¿Cuál es la sección de un dictamen forense que diferencia los hallazgos técnicos de las recomendaciones?',
+             opciones: [
+                 'El anexo de curriculum vitae del auditor forense',
+                 'El apartado "Hallazgos y Evidencias" documenta hechos comprobables; "Recomendaciones" propone acciones correctivas basadas en esos hechos',
+                 'La portada con el logotipo de la empresa auditada',
+                 'El glosario de términos técnicos utilizados en el informe'
+             ],
+             respuestaCorrecta: 1,
+             comentario: 'Un dictamen forense estructura: (1) Resumen ejecutivo; (2) Metodología aplicada; (3) Hallazgos técnicos: hechos comprobados con evidencia (qué ocurrió, cuándo, cómo); (4) Análisis de impacto; (5) Recomendaciones: acciones para remediar, con responsable, plazo y costo estimado; (6) Conclusiones; (7) Anexos con evidencias.',
+             repaso: 'Estructura del dictamen forense - hallazgos vs recomendaciones'},
+
+            /* ── BLOQUE 9: ÉTICA Y MARCO LEGAL ── */
+            {id: 17, tipo: 'verdadero_falso',
+             texto: 'Un auditor forense puede divulgar libremente toda la información sensible recopilada durante la investigación si considera que es de interés público.',
+             respuestaCorrecta: false,
+             comentario: 'El auditor forense está sujeto a: deber de confidencialidad contractual, normativas de protección de datos (RGPD/LOPDGDD), secreto profesional y principios éticos de objetividad e imparcialidad. La divulgación no autorizada puede constituir una violación de datos, un delito y la pérdida de admisibilidad de la evidencia en procesos judiciales.',
+             repaso: 'Ética del auditor forense - confidencialidad y responsabilidad legal'},
+
+            {id: 18, tipo: 'asociacion',
+             texto: 'Relaciona cada requerimiento del RGPD con su implicación concreta en una auditoría forense:',
+             columnaA: ['Minimización de datos', 'Derecho de acceso del interesado', 'Notificación de brecha'],
+             columnaB: [
+                 'Recopilar solo la evidencia estrictamente necesaria para la investigación, sin capturar datos personales irrelevantes',
+                 'El investigado tiene derecho a saber qué datos suyos se están procesando, salvo que una autoridad judicial suspenda ese derecho durante la investigación',
+                 'Si la investigación forense revela una brecha de datos personales, debe notificarse a la autoridad supervisora en máximo 72 horas'
+             ],
+             respuestasCorrectas: {
+                 'Minimización de datos': 'Recopilar solo la evidencia estrictamente necesaria para la investigación, sin capturar datos personales irrelevantes',
+                 'Derecho de acceso del interesado': 'El investigado tiene derecho a saber qué datos suyos se están procesando, salvo que una autoridad judicial suspenda ese derecho durante la investigación',
+                 'Notificación de brecha': 'Si la investigación forense revela una brecha de datos personales, debe notificarse a la autoridad supervisora en máximo 72 horas'
+             },
+             comentario: 'El RGPD impone obligaciones directas sobre la auditoría forense: no se puede recopilar más datos personales de los necesarios (minimización), el proceso debe respetar derechos de los interesados salvo orden judicial, y si se descubre una brecha, el plazo de notificación de 72 horas es inapelable.',
+             repaso: 'RGPD en el contexto de auditoría forense'}
         ];
 
         let estudiante = {}, respuestasEstudiante = {}, pantallActual = 'inicio', preguntaActual = 0;
@@ -782,8 +968,8 @@
                 return {p, ok, i};
             });
 
-            const pct = ((aciertos / 30) * 100).toFixed(1);
-            const apr = aciertos >= 21;
+            const pct = ((aciertos / 18) * 100).toFixed(1);
+            const apr = aciertos >= 13;
             const pts = aciertos * 0.5;
 
             let html = `<div class="advertencia-pdf">⚠️ DESCARGA PDF - OBLIGATORIO</div>
@@ -792,8 +978,8 @@
                     <div class="resultado-titulo">${apr ? '¡Felicidades!' : 'No aprobaste'}</div>
                 </div>
                 <div class="puntuacion">
-                    <div class="puntuacion-numero">${aciertos}/30</div>
-                    <div class="puntuacion-porcentaje">${pct}% - ${pts.toFixed(1)}/15 puntos</div>
+                    <div class="puntuacion-numero">${aciertos}/18</div>
+                    <div class="puntuacion-porcentaje">${pct}% - ${pts.toFixed(1)}/9 puntos</div>
                 </div>
                 <div class="detalles-respuestas">
                     <h3>📋 ANÁLISIS</h3>`;
@@ -833,8 +1019,8 @@
             });
 
             const pts = aciertos * 0.5;
-            const pct = ((aciertos / 30) * 100).toFixed(1);
-            const apr = aciertos >= 21;
+            const pct = ((aciertos / 18) * 100).toFixed(1);
+            const apr = aciertos >= 13;
 
             let html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
 *{margin:0;padding:0}body{font-family:Arial;color:#333;font-size:11px;line-height:1.3}
@@ -856,7 +1042,7 @@
 <div class="info">Email: ${estudiante.email} | Fecha: ${new Date().toLocaleDateString('es-ES')}</div>
 </div>
 
-<div class="resultado">${apr?'✓ APROBADO':'✗ NO APROBADO'} | ${aciertos}/30 (${pct}%) | ${pts.toFixed(1)}/15 puntos</div>
+<div class="resultado">${apr?'✓ APROBADO':'✗ NO APROBADO'} | ${aciertos}/18 (${pct}%) | ${pts.toFixed(1)}/9 puntos</div>
 
 <h3 style="font-size:12px;margin:8px 0;">ANÁLISIS DE RESPUESTAS</h3>`;
 
@@ -885,10 +1071,10 @@
 <div class="info">Fecha: ${new Date().toLocaleDateString('es-ES')}</div>
 </div>
 
-<div class="resultado" style="text-align:center;">${apr?'✓ APROBADO':'✗ NO APROBADO'} | ${aciertos}/30 | ${pct}% | ${pts.toFixed(1)}/15 puntos</div>
+<div class="resultado" style="text-align:center;">${apr?'✓ APROBADO':'✗ NO APROBADO'} | ${aciertos}/18 | ${pct}% | ${pts.toFixed(1)}/9 puntos</div>
 
 <div class="footer">
-<p>© 2024 Auditoría de Sistemas I</p>
+<p>© 2025 Auditoría de Sistemas I — Preguntas Avanzadas</p>
 </div>
 </body></html>`;
 
