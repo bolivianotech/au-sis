@@ -1034,17 +1034,17 @@
 .mal{color:#dc2626;font-weight:bold}
 .footer{border-top:2px solid #667eea;padding:8px 0;text-align:center;font-size:9px;color:#999;margin-top:15px}
 .sep{page-break-after:always;margin:10px 0}
-</style></head><body>`;
+<\/style><\/head><body>`;
 
             html += `<div class="header">
-<div class="titulo">EXAMEN AUDITORÍA DE SISTEMAS I</div>
-<div class="info">Estudiante: ${estudiante.nombre} | Cédula: ${estudiante.cedula}</div>
-<div class="info">Email: ${estudiante.email} | Fecha: ${new Date().toLocaleDateString('es-ES')}</div>
-</div>
+<div class="titulo">EXAMEN AUDITORÍA DE SISTEMAS I<\/div>
+<div class="info">Estudiante: ${estudiante.nombre} | Cédula: ${estudiante.cedula}<\/div>
+<div class="info">Email: ${estudiante.email} | Fecha: ${new Date().toLocaleDateString('es-ES')}<\/div>
+<\/div>
 
-<div class="resultado">${apr?'✓ APROBADO':'✗ NO APROBADO'} | ${aciertos}/18 (${pct}%) | ${pts.toFixed(1)}/9 puntos</div>
+<div class="resultado">${apr?'✓ APROBADO':'✗ NO APROBADO'} | ${aciertos}/18 (${pct}%) | ${pts.toFixed(1)}/9 puntos<\/div>
 
-<h3 style="font-size:12px;margin:8px 0;">ANÁLISIS DE RESPUESTAS</h3>`;
+<h3 style="font-size:12px;margin:8px 0;">ANÁLISIS DE RESPUESTAS<\/h3>`;
 
             bancoPReguntas.forEach((p, i) => {
                 let ok = false;
@@ -1056,27 +1056,27 @@
                 }
 
                 html += `<div class="preg">
-<div class="resp-txt"><strong>P${i+1}:</strong> ${p.texto}</div>
-<div class="resp-txt"><span class="${ok?'bien':'mal'}">${ok?'✓ CORRECTO':'✗ INCORRECTO'}</span> - ${ok?'👍 ¡Bien hecho!':'📝 La próxima te irá mejor'}</div>
-<div class="resp-txt" style="font-size:9px;margin-top:2px;">${p.comentario}</div>
-<div class="resp-txt" style="font-size:9px;color:#666;">Repasa: ${p.repaso}</div>
-</div>`;
+<div class="resp-txt"><strong>P${i+1}:<\/strong> ${p.texto}<\/div>
+<div class="resp-txt"><span class="${ok?'bien':'mal'}">${ok?'✓ CORRECTO':'✗ INCORRECTO'}<\/span> - ${ok?'👍 ¡Bien hecho!':'📝 La próxima te irá mejor'}<\/div>
+<div class="resp-txt" style="font-size:9px;margin-top:2px;">${p.comentario}<\/div>
+<div class="resp-txt" style="font-size:9px;color:#666;">Repasa: ${p.repaso}<\/div>
+<\/div>`;
             });
 
-            html += `<div class="sep"></div>
+            html += `<div class="sep"><\/div>
 <div class="header">
-<div class="titulo">RESUMEN FINAL</div>
-<div class="info">Estudiante: ${estudiante.nombre}</div>
-<div class="info">Cédula: ${estudiante.cedula}</div>
-<div class="info">Fecha: ${new Date().toLocaleDateString('es-ES')}</div>
-</div>
+<div class="titulo">RESUMEN FINAL<\/div>
+<div class="info">Estudiante: ${estudiante.nombre}<\/div>
+<div class="info">Cédula: ${estudiante.cedula}<\/div>
+<div class="info">Fecha: ${new Date().toLocaleDateString('es-ES')}<\/div>
+<\/div>
 
-<div class="resultado" style="text-align:center;">${apr?'✓ APROBADO':'✗ NO APROBADO'} | ${aciertos}/18 | ${pct}% | ${pts.toFixed(1)}/9 puntos</div>
+<div class="resultado" style="text-align:center;">${apr?'✓ APROBADO':'✗ NO APROBADO'} | ${aciertos}/18 | ${pct}% | ${pts.toFixed(1)}/9 puntos<\/div>
 
 <div class="footer">
-<p>© 2025 Auditoría de Sistemas I — Preguntas Avanzadas</p>
-</div>
-</body></html>`;
+<p>© 2025 Auditoría de Sistemas I — Preguntas Avanzadas<\/p>
+<\/div>
+<\/body><\/html>`;
 
             const ele = document.createElement('div');
             ele.innerHTML = html;
